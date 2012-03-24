@@ -1,7 +1,7 @@
 module Votd
   module ESV
     def self.votd
-      "ESV VOTD goes here"
+      File.read("spec/fixtures/votd.json")
     end
   end
 end
