@@ -5,3 +5,5 @@
 * Update `votd` command-line version.
 
 * Integrate [ESV VOTD service](http://www.esvapi.org/api)
+
+* Ensure Ruby < 1.9 compatibility.
