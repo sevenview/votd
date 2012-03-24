@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe Votd do
-  describe "#hello" do
-    it "outputs 'Hello World'" do
-      Votd.hello.should == "Hello World"
-    end
+  it "has a VERSION number" do
+    Votd::VERSION.should be
   end
 end
