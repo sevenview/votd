@@ -45,5 +45,14 @@ module Votd
     def version
       BIBLE_VERSION
     end
+
+    def to_html
+      html =  "<p class=\"votd-text\">#{self.text}</p>\n"
+      html << "<p>\n"
+      html << "<span class=\"votd-reference\"><strong>#{self.reference}</strong></span>\n"
+      html << "<span class=\"votd-version\"><em>(#{self.version})</em></span>\n"
+      html << "</p>\n"
+      html
+    end
   end
 end

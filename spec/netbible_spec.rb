@@ -24,4 +24,8 @@ describe "Votd::NETBible" do
     votd.version.should == "BIBLE.ORG"
   end
 
+  it "returns a HTML version" do
+    votd.to_html.should == File.read(fixture("netbible.html"))
+  end
+
 end
