@@ -2,7 +2,7 @@
 
 VotD (Verse of the Day) is a simple API wrapper that generates a Verse of the day with the
 Bible translation of your choice. Votd uses a small plugin system that allows users to
-include their own API system in a separate module within the Votd library.
+include their own API system in a separate module within the VotD library.
 
 More can be found on the {file:CONTRIBUTING.md Contributing} page regarding plugins.
 
