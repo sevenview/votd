@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["doctorbh@ninjanizr.com", "beakr@ninjanizr.com"]
   gem.description   = %q{A simple API wrapper for generating a Verse of the day.}
   gem.summary       = %q{Generate a Verse of the day in a simple API wrapper.}
-  gem.homepage      = "https//github.com/doctorbh/votd"
+  gem.homepage      = "https://github.com/doctorbh/votd"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
@@ -15,6 +15,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Votd::VERSION
 
+  gem.add_runtime_dependency     "httparty"
+  gem.add_development_dependency "fakeweb"
   gem.add_development_dependency "rspec"
   gem.add_development_dependency "guard-rspec"
   gem.add_development_dependency "yard"

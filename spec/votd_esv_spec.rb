@@ -3,14 +3,14 @@ require 'json'
 
 describe "Votd::ESV" do
   describe "#votd" do
-    let(:votd) { Votd::ESV.votd }
+    let(:esv) { Votd::ESV.new }
 
     before do
-      @parsed_json = JSON.parse(votd)
+      @parsed_json = JSON.parse(esv.votd)
     end
 
     it "returns a verse of the day" do
-      votd.should == File.read("spec/fixtures/votd.json")
+      esv.votd.should == File.read("spec/fixtures/votd.json")
     end
 
     it "returns valid JSON" do
