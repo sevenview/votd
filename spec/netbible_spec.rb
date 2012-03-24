@@ -21,7 +21,7 @@ describe "Votd::NETBible" do
   end
 
   it "has a .version" do
-    votd.version.should == "BIBLE.ORG"
+    votd.version.should == "NETBible"
   end
 
   it "returns a HTML version" do

@@ -1,6 +1,7 @@
 module Votd
   class NetBible
-    BIBLE_VERSION = "BIBLE.ORG"
+    # The name of the Bible Translation that this module generates
+    BIBLE_VERSION = "NETBible"
 
     # Retrieves the JSON data from the BIBLE.ORG API gateway
     #
