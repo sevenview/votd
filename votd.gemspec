@@ -4,9 +4,9 @@ require File.expand_path('../lib/votd/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Steve Clarke", "Chris Clarke"]
   gem.email         = ["doctorbh@ninjanizr.com", "beakr@ninjanizr.com"]
-  gem.description   = %q{Generate a Bible Verse of the Day}
-  gem.summary       = %q{Use ESV Bible API to look up the Verse of the Day}
-  gem.homepage      = "TODO: set to github repo"
+  gem.description   = %q{A simple API wrapper for generating a Verse of the day.}
+  gem.summary       = %q{Generate a Verse of the day in a simple API wrapper.}
+  gem.homepage      = "https//github.com/doctorbh/votd"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
