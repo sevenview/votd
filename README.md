@@ -1,6 +1,10 @@
-# Votd
+# VOTD
 
-TODO: Write a gem description
+VOTD (Verse of the Day) is a simple API wrapper that generates a Verse of the day with the
+Bible translation of your choice. Votd uses a small plugin system that allows users to
+include their own API system in a separate module within the Votd library.
+
+More can be found on the 'Contributions' page regarding plugins.
 
 ## Installation
 
@@ -28,4 +32,4 @@ TODO: Write usage instructions here
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-(See more on contributing [Here](https://github.com/doctorbh/votd/wiki/Contributions).)
+(See more on contributing {file:CONTRIBUTING.md here}).
