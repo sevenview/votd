@@ -1,7 +1,7 @@
 require "votd/version"
 
 module Votd
-  def hello
+  def self.hello
     "Hello World"
   end
 end
