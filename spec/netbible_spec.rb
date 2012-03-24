@@ -2,10 +2,10 @@ require 'spec_helper'
 require 'json'
 
 describe "Votd::NETBible" do
-  let(:votd) { Votd::NETBible.new }
+  let(:votd) { Votd::NetBible.new }
 
   it "is a type of NETBible" do
-    votd.should be_a(Votd::NETBible)
+    votd.should be_a(Votd::NetBible)
   end
 
   it "has a .date" do

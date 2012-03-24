@@ -1,5 +1,5 @@
 module Votd
-  class NETBible
+  class NetBible
     BIBLE_VERSION = "BIBLE.ORG"
 
     # Retrieves the JSON data from the BIBLE.ORG API gateway
@@ -46,6 +46,4 @@ module Votd
       BIBLE_VERSION
     end
   end
-
-
 end
