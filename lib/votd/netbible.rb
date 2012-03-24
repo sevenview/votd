@@ -7,7 +7,7 @@ module Votd
     # @param none
     # @return [JSON] verse of the day as a JSON string
     def self.votd
-      netbible_data = JSON.parse(File.read("spec/fixtures/netbible.json"))
+      netbible_data = JSON.parse(File.read(fixture("netbible.json")))
 
       # use bookname from first verse -- assume votd won't span books
       bookname = netbible_data[0]["bookname"]

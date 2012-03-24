@@ -5,7 +5,7 @@ module Votd
     # @param none
     # @return [JSON] verse of the day as a JSON string
     def self.votd
-      File.read("spec/fixtures/votd.json")
+      File.read(fixture("votd.json"))
     end
   end
 end
