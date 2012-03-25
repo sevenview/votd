@@ -6,6 +6,8 @@
 
 * Integrate [ESV API](http://www.esvapi.org/api)
 
-* Integrate [Bible Gateway](http://www.biblegateway.com/usage/votd/docs/)
+* Enable support for more translations from [Bible Gateway](http://www.biblegateway.com/usage/votd/docs/)
 
 * Ensure Ruby < 1.9 compatibility.
+
+* Clean up architecture to use one base class for all modules
