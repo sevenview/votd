@@ -12,7 +12,7 @@ Other services are are planned:
 * [Bible Gateway](http://www.biblegateway.com) - Multiple Translations
 * [ESV Bible Web Service](http://www.esvapi.org/) - ESV Translation
 
-If you are able to contribute modules for any of these, please see our [CONTRIBUTING](CONTRIBUTING.md) file. Let us know before you begin work in case someone else has a module in-progress.
+If you are able to contribute modules for any of these, please see our [CONTRIBUTING](http://rubydoc.info/gems/votd/file/CONTRIBUTING.md) file. Let us know before you begin work in case someone else has a module in-progress.
 
 ## Installation
 
@@ -71,11 +71,11 @@ Stephen Clarke <doctorbh@ninjanizr.com>
 
 ## Changelog
 
-See our [CHANGELOG](CHANGELOG.md) file.
+See our [CHANGELOG](http://rubydoc.info/gems/votd/file/CHANGELOG.md) file.
 
 ## TODO
 
-See our [TODO](TODO.md) file.
+See our [TODO](http://rubydoc.info/gems/votd/file/TODO.md) file.
 
 ## Requests
 
@@ -90,8 +90,10 @@ To submit bug, feature requests, patches see our [Issues List](https://github.co
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create new Pull Request
 
-See more on [CONTRIBUTING](CONTRIBUTING.md).
+See more on [CONTRIBUTING](http://rubydoc.info/gems/votd/file/CONTRIBUTING.md).
 
 ## Copyright
+
+(The MIT License)
 
 &copy; 2012 Christopher Clarke, Stephen Clarke. See LICENSE for details.
