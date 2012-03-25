@@ -12,7 +12,7 @@ Other services are are planned:
 * [Bible Gateway](http://www.biblegateway.com) - Multiple Translations
 * [ESV Bible Web Service](http://www.esvapi.org/) - ESV Translation
 
-If you are able to contribute modules for any of these, please see our [CONTRIBUTING]() file. Let us know before you begin work in case someone else has a module in-progress.
+If you are able to contribute modules for any of these, please see our [CONTRIBUTING](CONTRIBUTING.md) file. Let us know before you begin work in case someone else has a module in-progress.
 
 ## Installation
 
@@ -57,7 +57,7 @@ For command-line usage see [here](https://github.com/doctorbh/votd/wiki/Shell-To
 
 ## Documentation
 
-Documentation may be found [here]()
+Documentation may be found [here](http://rubydoc.info/gems/votd/file/README.md)
 
 ## Source Code
 
@@ -71,11 +71,11 @@ Stephen Clarke <doctorbh@ninjanizr.com>
 
 ## Changelog
 
-See our [CHANGELOG]() file.
+See our [CHANGELOG](CHANGELOG.md) file.
 
 ## TODO
 
-See our [TODO]() file.
+See our [TODO](TODO.md) file.
 
 ## Requests
 
@@ -85,11 +85,12 @@ To submit bug, feature requests, patches see our [Issues List](https://github.co
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+3. Write passing tests/specs (we use [RSpec](http://rspec.info))
+4. Commit your changes (`git commit -am 'Added some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create new Pull Request
 
-See more on [CONTRIBUTING]().
+See more on [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Copyright
 
