@@ -53,6 +53,8 @@ Full text of HTML formatted VotD looks like the following
 
 You can then use the provided CSS classes to style the VotD.
 
+For command-line usage see [here](https://github.com/doctorbh/votd/wiki/Shell-Tool)
+
 ## Documentation
 
 Documentation may be found [here]()
