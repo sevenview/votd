@@ -7,3 +7,5 @@
 * Integrate [ESV VOTD service](http://www.esvapi.org/api)
 
 * Integrate [Bible Gateway](http://www.biblegateway.com/)
+
+* Make compatible with Ruby < 1.9
