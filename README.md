@@ -42,6 +42,20 @@ To use VotD in our code:
     votd.version     # NETBible
     
     votd.to_html     # <p class="votd-text">For by grace you are saved through faith...
+
+Or using a `do` block:
+
+    bible = Votd::NETBible.new do
+      # Just use the template for the verse:
+      "#{date}
+      #{text}
+     -- #{reference}: #{version}"
+    end
+
+# date      -- current date for the verse
+# text      -- the verse itself
+# reference -- bible reference (e.g. John 3:16)
+# version   -- bible version (e.g. King James)
     
 Full text of HTML formatted VotD looks like the following
 
