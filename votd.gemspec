@@ -19,6 +19,7 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency     "httparty"
 
+  gem.add_development_dependency "rake"
   gem.add_development_dependency "fakeweb"
   gem.add_development_dependency "rspec"
   gem.add_development_dependency "guard-rspec"

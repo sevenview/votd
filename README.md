@@ -85,7 +85,7 @@ See our [CHANGELOG](http://rubydoc.info/gems/votd/file/CHANGELOG.md) file.
 ## TODO
 
 See our [TODO](http://rubydoc.info/gems/votd/file/TODO.md) file.
-s
+
 ## Authors
 
 Christopher Clarke <beakr@ninjanizr.com>
