@@ -1,1 +1,6 @@
-yardoc - LICENSE CONTRIBUTING.md TODO.md
+--title "VotD - (Bible) Verse of the Day"
+lib/**/*
+-
+LICENSE
+CONTRIBUTING.md
+TODO.md
