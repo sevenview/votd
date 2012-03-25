@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+# allow this to run from development environment
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+
 require 'votd'
 
 votd = Votd::NetBible.new
