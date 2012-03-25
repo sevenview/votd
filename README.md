@@ -96,4 +96,4 @@ Stephen Clarke <doctorbh@ninjanizr.com>
 
 (The MIT License)
 
-&copy; 2012 Christopher Clarke, Stephen Clarke. See LICENSE for details.
+&copy; 2012 Christopher Clarke, Stephen Clarke. See [LICENSE](http://rubydoc.info/gems/votd/1.0.0/file/LICENSE) for details.
