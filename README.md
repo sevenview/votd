@@ -32,7 +32,7 @@ Or install it yourself as:
 
 ## Usage
 
-To use VotD in our code:
+To use VotD in your code:
 
     require 'votd'
     
