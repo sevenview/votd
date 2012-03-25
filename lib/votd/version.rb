@@ -1,4 +1,4 @@
 module Votd
   # Gem version number
-  VERSION = "0.9.5"
+  VERSION = "1.0.0"
 end

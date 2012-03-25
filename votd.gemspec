@@ -4,8 +4,7 @@ require File.expand_path('../lib/votd/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Steve Clarke", "Chris Clarke"]
   gem.email         = ["doctorbh@ninjanizr.com", "beakr@ninjanizr.com"]
-  gem.description   = %q{A simple API wrapper for generating a Verse of the day.}
-  gem.summary       = %q{Generate a Verse of the day in a simple API wrapper.}
+  gem.summary       = %q{Generate a (Bible) Verse of the Day using various Web-API wrappers}
   gem.homepage      = "https://github.com/doctorbh/votd"
 
   gem.files         = `git ls-files`.split($\)
@@ -14,8 +13,12 @@ Gem::Specification.new do |gem|
   gem.name          = "votd"
   gem.require_paths = ["lib"]
   gem.version       = Votd::VERSION
+  gem.license       = "MIT"
+
+  gem.required_ruby_version = ">= 1.9.1"
 
   gem.add_runtime_dependency     "httparty"
+
   gem.add_development_dependency "fakeweb"
   gem.add_development_dependency "rspec"
   gem.add_development_dependency "guard-rspec"
