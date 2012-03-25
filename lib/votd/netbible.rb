@@ -12,40 +12,38 @@ module Votd
       get_verse
     end
 
-    # The scripture reference. e.g.
-    #    "Ephesians 2:8-9"
+    # @example
+    #    votd.reference  # "Ephesians 2:8-9"
     #
-    # @return [String]
+    # @return [String] the scripture reference.
     def reference
       @reference
     end
 
-    # The full bible passage. e.g.
-    #     "For by grace you are saved through faith..."
-    # @return [String]
+    # @example
+    #   votd.text  # "For by grace you are saved through faith..."
+    # @return [String] the full bible passage
     def text
       @text
     end
 
-    # The date the Verse was retrieved. e.g.
-    #     "2012-03-24"
+    # @example
+    #   votd.date  # "2012-03-24"
     #
-    # @return [String]
+    # @return [String] the date the Verse was retrieved
     def date
       Date.today
     end
 
-    # The bible translation used for this VotD. For this module this
-    # will always be.
-    #     NETBible
+    # For this module this will always be:
+    #   "NETBible"
     #
-    # @return [String]
+    # @return [String] the bible translation used for this VotD
     def version
       BIBLE_VERSION
     end
 
-    # Returns the Verse of the Day formatted as HTML.
-    # e.g.
+    # Returns the Verse of the Day formatted as HTML. e.g.
     #    <p class="votd-text">For by grace you are saved through faith...</p>
     #    <p>
     #    <span class="votd-reference"><strong>Ephesians 2:8-9</strong></span>
