@@ -1,5 +1,7 @@
+# Contributing
+
 Inside of VotD's source is a module with classes and files referring
-to various Bible web APIs. By contributing to VotD with plugins you
+to various Bible web services. By contributing to VotD with plugins you
 can help keep the gem fresh with new versions.
 
 The most basic way to get the code is to simply fork the code base on
@@ -18,3 +20,12 @@ and you're ready to go!
 
 Just pop us a [Pull Request](https://github.com/doctorbh/votd/pulls)
 and you're code will be overviewed and ready to go soon.
+
+## Summary
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Write passing tests/specs (we use [RSpec](http://rspec.info))
+4. Commit your changes (`git commit -am 'Added some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create new Pull Request
