@@ -1,5 +1,6 @@
-require "votd/version"
+require "votd/bible_gateway"
 require "votd/netbible"
+require "votd/version"
 require "time"
 require "json"
 require "httparty"
