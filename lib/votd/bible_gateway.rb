@@ -7,8 +7,10 @@ module Votd
 
     end
 
+    # 
     def date
       Date.today
     end
+
   end
 end
