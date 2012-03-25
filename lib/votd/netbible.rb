@@ -7,11 +7,11 @@ module Votd
 
     # Initializes the NetBible class
     def initialize
-      @reference = ""
-      @text      = ""
+      @reference, @text = ""
       get_verse
     end
 
+    # @macro [new] votd.reference
     # @example
     #    votd.reference  # "Ephesians 2:8-9"
     #
@@ -27,6 +27,7 @@ module Votd
       @text
     end
 
+    # @macro [new] votd.date
     # @example
     #   votd.date  # "2012-03-24"
     #

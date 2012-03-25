@@ -11,9 +11,9 @@ describe "BibleGateway" do
     votd.date.should == Date.today
   end
 
-  #it "has a .reference" do
-  #  votd.reference.should == "Ephesians 2:8-9"
-  #end
+  it "has a .reference" do
+    votd.reference.should == "1 John 1:9"
+  end
   #
   #it "has a .text" do
   #  votd.text.should == "For by grace you are saved through faith... it is not from works, so that no one can boast."
