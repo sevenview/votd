@@ -63,20 +63,6 @@ Documentation may be found [here](http://rubydoc.info/gems/votd/file/README.md)
 
 Source code is available in our [GitHub repository](https://github.com/doctorbh/votd).
 
-## Authors
-
-Christopher Clarke <beakr@ninjanizr.com>
-
-Stephen Clarke <doctorbh@ninjanizr.com>
-
-## Changelog
-
-See our [CHANGELOG](http://rubydoc.info/gems/votd/file/CHANGELOG.md) file.
-
-## TODO
-
-See our [TODO](http://rubydoc.info/gems/votd/file/TODO.md) file.
-
 ## Requests
 
 To submit bug, feature requests, patches see our [Issues List](https://github.com/doctorbh/votd/issues) on GitHub.
@@ -91,6 +77,20 @@ To submit bug, feature requests, patches see our [Issues List](https://github.co
 6. Create new Pull Request
 
 See more on [CONTRIBUTING](http://rubydoc.info/gems/votd/file/CONTRIBUTING.md).
+
+## Changelog
+
+See our [CHANGELOG](http://rubydoc.info/gems/votd/file/CHANGELOG.md) file.
+
+## TODO
+
+See our [TODO](http://rubydoc.info/gems/votd/file/TODO.md) file.
+s
+## Authors
+
+Christopher Clarke <beakr@ninjanizr.com>
+
+Stephen Clarke <doctorbh@ninjanizr.com>
 
 ## Copyright
 
