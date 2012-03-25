@@ -19,6 +19,7 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency     "httparty"
   gem.add_runtime_dependency     "json" if RUBY_VERSION < "1.9"
+  gem.add_runtime_dependency     "feedzirra"
   gem.add_development_dependency "rake"
   gem.add_development_dependency "fakeweb"
   gem.add_development_dependency "rspec"

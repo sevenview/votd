@@ -5,7 +5,7 @@ $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
 require 'votd'
 
-votd = Votd::NetBible.new
+votd = Votd::BibleGateway.new
 
 puts "===================================================="
 puts "          VERSE OF THE DAY for #{votd.date.to_s}"

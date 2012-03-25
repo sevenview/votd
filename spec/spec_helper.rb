@@ -11,6 +11,12 @@ RSpec.configure do |config|
     File.join(File.dirname(__FILE__), 'fixtures', filename)
   end
 
-  FakeWeb.register_uri(:get, "http://labs.bible.org/api/?passage=votd&type=json",
+  # Register Bible Gateway URI
+  FakeWeb.register_uri(:get, Votd::BibleGateway::URI,
+                       :body => open(fixture("bible_gateway.rss")))
+
+  # Register NETBible URI
+  FakeWeb.register_uri(:get, Votd::NetBible::URI,
                        :body => open(fixture("netbible.json")))
+
 end
