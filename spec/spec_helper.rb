@@ -12,5 +12,5 @@ RSpec.configure do |config|
   end
 
   FakeWeb.register_uri(:get, "http://labs.bible.org/api/?passage=votd&type=json",
-                       body: open(fixture("netbible.json")))
+                       :body => open(fixture("netbible.json")))
 end
