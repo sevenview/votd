@@ -1,7 +1,7 @@
 module Votd
   # @todo Clean up generated verse when it has trailing punctuation
   #       and/or begins with lower-case. Substitute "..."
-  # Retrieves a Verse of the Day from bible.org using the NETBible
+  # Retrieves a Verse of the Day from http://bible.org using the NETBible
   # translation.
   class NetBible < Votd::Base
     # The name of the Bible Translation that this module generates

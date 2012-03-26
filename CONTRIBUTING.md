@@ -9,8 +9,23 @@ GitHub. This will hand over a copy of the code to you so that you can
 really do whatever you want.
 
 To create a plugin, you must find an API and wrap it in a module
-located in `lib/votd`. Once this is complete, you can start by
-creating a new file in `spec` to test your plugin before your pull
+located in `lib/votd`.
+
+* Your class must inherit from {Votd::Base} and
+needs to override the {Votd::Base#get_votd} method.
+
+* Your class must supply the `BIBLE_VERSION` constant, or set `@version` inside the class somewhere.
+
+* Your initializer must consist of at least the following:
+
+      ```ruby
+      # Initializes the MyBible class
+      def initialize
+      	super
+      end
+      ```
+    
+Creating a new file in `spec` to test your plugin before your pull
 request. VotD uses the testing framework [Rspec](http://rspec.info/)
 to manage testing, so use the Rspec syntax enhancements rather than
 another framework.

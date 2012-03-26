@@ -59,8 +59,9 @@ module Votd
     end
 
     protected
-    # Gets the VotD. For base class this will return default values and can be
-    # used in the event of an exception thrown in the subclassed modules.
+    # Gets the VotD. For {Votd::Base} this will return default values and can be
+    # used in the event of an exception thrown when getting data from live web
+    # services in subclasses of {Votd::Base}
     def get_votd
       @text      = "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."
       @reference = "John 3:16"
