@@ -1,4 +1,5 @@
 --title "VotD - (Bible) Verse of the Day"
+--protected
 lib/**/*
 -
 CONTRIBUTING.md

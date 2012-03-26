@@ -1,7 +1,7 @@
 module Votd
   # This is the base class that all Votd lookup modules inherit from.
   # It provides default values for the Votd in the event of lookup failure.
-  # Child classes should override the get_votd method to implement their
+  # Child classes should override the {#get_votd} method to implement their
   # specific lookup function.
   class Base
     # @example
