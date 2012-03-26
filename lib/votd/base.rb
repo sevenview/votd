@@ -4,20 +4,33 @@ module Votd
   # Child classes should override the get_votd method to implement their
   # specific lookup function.
   class Base
-    # @return [string] the default bible verse
+    # @example
+    #   votd.text  # "For by grace you are saved through faith..."
+    # @return [String] the full bible passage
     attr_reader :text
-    # @return [string] the default scripture reference
+
+    # @example
+    #    votd.reference  # "Ephesians 2:8-9"
+    #
+    # @return [String] the scripture reference.
     attr_reader :reference
-    # @return [string] the default date of the VotD
+
+    # @example
+    #   votd.date  # "2012-03-24"
+    #
+    # @return [String] the date the Verse was retrieved
     attr_reader :date
-    # @return [string] the default bible version
+
+    # @example
+    #     votd.version  # "NIV"
+    # @return [String] the bible translation used for this VotD
     attr_reader :version
 
     # The default Bible version to use if none is given and no other default
     # is provided
     DEFAULT_BIBLE_VERSION = "KJV"
 
-    # Initializes the class
+    # Initializes the class and retrieves the verse of the day.
     def initialize
       @text      = ""
       @reference = ""
@@ -25,7 +38,17 @@ module Votd
       get_votd
     end
 
-    # @macro votd.to_html
+    # Returns the Verse of the Day formatted as HTML. e.g.
+    #    <p class="votd-text">For by grace you are saved through faith...</p>
+    #    <p>
+    #    <span class="votd-reference"><strong>Ephesians 2:8-9</strong></span>
+    #    <span class="votd-version"><em>(NETBible)</em></span>
+    #    </p>
+    #
+    # This should provide sufficient hooks to style the CSS. If this is not
+    # sufficient, you can build the HTML by hand using the individual data.
+    #
+    # @return [String] the VotD formatted as HTML
     def to_html
       html =  "<p class=\"votd-text\">#{@text}</p>\n"
       html << "<p>\n"
@@ -35,7 +58,7 @@ module Votd
       html
     end
 
-    private
+    protected
     # Gets the VotD. For base class this will return default values and can be
     # used in the event of an exception thrown in the subclassed modules.
     def get_votd

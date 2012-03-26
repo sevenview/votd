@@ -1,7 +1,9 @@
 module Votd
+  # @todo Clean up generated verse when it has trailing punctuation
+  #       and/or begins with lower-case. Substitute "..."
   # Retrieves a Verse of the Day from bible.org using the NETBible
   # translation.
-  class NetBible
+  class NetBible < Votd::Base
     # The name of the Bible Translation that this module generates
     BIBLE_VERSION = "NETBible"
 
@@ -10,68 +12,13 @@ module Votd
 
     # Initializes the NetBible class
     def initialize
-      @reference, @text = ""
-      get_verse
-    end
-
-    # @macro [new] votd.reference
-    # @example
-    #    votd.reference  # "Ephesians 2:8-9"
-    #
-    # @return [String] the scripture reference.
-    def reference
-      @reference
-    end
-
-    # @macro [new] votd.text
-    # @example
-    #   votd.text  # "For by grace you are saved through faith..."
-    # @return [String] the full bible passage
-    def text
-      @text
-    end
-
-    # @macro [new] votd.date
-    # @example
-    #   votd.date  # "2012-03-24"
-    #
-    # @return [String] the date the Verse was retrieved
-    def date
-      Date.today
-    end
-
-    # For this module this will always be:
-    #   "NETBible"
-    # @macro [new] votd.version
-    # @return [String] the bible translation used for this VotD
-    def version
-      BIBLE_VERSION
-    end
-
-    # @macro [new] votd.to_html
-    # Returns the Verse of the Day formatted as HTML. e.g.
-    #    <p class="votd-text">For by grace you are saved through faith...</p>
-    #    <p>
-    #    <span class="votd-reference"><strong>Ephesians 2:8-9</strong></span>
-    #    <span class="votd-version"><em>(NETBible)</em></span>
-    #    </p>
-    #
-    # This should provide sufficient hooks to style the CSS. If this is not
-    # sufficient, you can build the HTML by hand using the individual data.
-    #
-    # @return [String] the VotD formatted as HTML
-    def to_html
-      html =  "<p class=\"votd-text\">#{self.text}</p>\n"
-      html << "<p>\n"
-      html << "<span class=\"votd-reference\"><strong>#{self.reference}</strong></span>\n"
-      html << "<span class=\"votd-version\"><em>(#{self.version})</em></span>\n"
-      html << "</p>\n"
-      html
+      super
     end
 
     private
+    # @todo Generate default VotD from Votd::Base if there's a problem getting feed
     # Gets the verse in JSON format from bible.org
-    def get_verse
+    def get_votd
       netbible_data = JSON.parse(HTTParty.get(URI))
 
       # use bookname from first verse -- assume votd won't span books
@@ -93,6 +40,8 @@ module Votd
 
       # build the text
       @text = verses.join(" ")
+
+      @version = BIBLE_VERSION
     end
   end
 end
