@@ -21,8 +21,7 @@ module Votd
     def initialize
       @text      = ""
       @reference = ""
-      @date      = ""
-      @version   = ""
+      @date      = Date.today
       get_votd
     end
 
@@ -42,7 +41,6 @@ module Votd
     def get_votd
       @text      = "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."
       @reference = "John 3:16"
-      @date      = Date.today
       @version   = DEFAULT_BIBLE_VERSION
     end
 
