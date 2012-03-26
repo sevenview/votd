@@ -6,10 +6,8 @@ require "yard"
 task :default => :spec
 
 desc "Run RSpec tests [default]"
-RSpec::Core::RakeTask.new do |task|
-end
+RSpec::Core::RakeTask.new
 
 desc "Generate YARD docs"
-YARD::Rake::YardocTask.new do |task|
-end
+YARD::Rake::YardocTask.new
 

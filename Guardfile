@@ -1,8 +1,10 @@
-guard 'rspec', version: 2, cli: "--color --format documentation" do
+guard 'bundler' do
+  watch('Gemfile')
+  watch(%r{^.+\.gemspec})
+end
+
+guard 'rspec', :version => 2, :cli => "--color --format documentation" do
   watch(%r{^spec/.+_spec\.rb$})
-  watch(%r{^lib/(.+)\.rb$})     { |m|
-    puts "running spec/lib/#{m[1]}_spec.rb"
-    "spec/lib/#{m[1]}_spec.rb"
-  }
+  watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
 end

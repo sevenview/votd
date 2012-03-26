@@ -18,12 +18,13 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version = ">= 1.9.1"
 
   gem.add_runtime_dependency     "httparty"
-  gem.add_runtime_dependency     "json" if RUBY_VERSION < "1.9"
   gem.add_runtime_dependency     "feedzirra"
+  gem.add_runtime_dependency     "json"           if RUBY_VERSION < "1.9"
   gem.add_development_dependency "rake"
   gem.add_development_dependency "fakeweb"
   gem.add_development_dependency "rspec"
   gem.add_development_dependency "guard-rspec"
+  gem.add_development_dependency "guard-bundler"
   gem.add_development_dependency "yard"
   gem.add_development_dependency "redcarpet"
 end
