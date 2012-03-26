@@ -23,6 +23,7 @@ module Votd
     end
 
     private
+    # @todo Generate default VotD from Votd::Base if there's a problem getting feed
     # Gets the votd from the Bible Gateway RSS feed
     def get_votd
       feed       = Feedzirra::Feed.parse(HTTParty.get(URI).body)
