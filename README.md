@@ -17,7 +17,7 @@ Other services are are planned:
  
 * [ESV Bible Web Service](http://www.esvapi.org/) - ESV Translation
 
-If you are able to contribute modules for any of these, please see our [CONTRIBUTING](http://rubydoc.info/gems/votd/file/CONTRIBUTING.md) file. Let us know before you begin work in case someone else has a module in-progress.
+If you are able to contribute modules for any of these, please see our [CONTRIBUTING](https://github.com/doctorbh/votd/blob/master/CONTRIBUTING.md) file. Let us know before you begin work in case someone else has a module in-progress.
 
 ## Installation
 
@@ -83,7 +83,7 @@ To submit bug, feature requests, patches see our [Issues List](https://github.co
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create new Pull Request
 
-See more on [CONTRIBUTING](http://rubydoc.info/gems/votd/file/CONTRIBUTING.md).
+See more on [CONTRIBUTING](https://github.com/doctorbh/votd/blob/master/CONTRIBUTING.md).
 
 ## Changelog
 
