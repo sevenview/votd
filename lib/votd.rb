@@ -1,3 +1,4 @@
+require "votd/base"
 require "votd/bible_gateway"
 require "votd/netbible"
 require "votd/version"
