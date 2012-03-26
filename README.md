@@ -1,7 +1,10 @@
 # VotD - (Bible) Verse of the Day
 
+[![Build Status](https://secure.travis-ci.org/doctorbh/votd.png?branch=master)](http://travis-ci.org/doctorbh/votd)
+
 VotD (Verse of the Day) is a Ruby Gem that wraps various web services that generate
 daily Bible Verses.
+
 
 Currently the gem supports two VotD web services:
 
@@ -84,11 +87,11 @@ See more on [CONTRIBUTING](http://rubydoc.info/gems/votd/file/CONTRIBUTING.md).
 
 ## Changelog
 
-See our [CHANGELOG](http://rubydoc.info/gems/votd/file/CHANGELOG.md) file.
+See our [CHANGELOG](https://github.com/doctorbh/votd/blob/master/CHANGELOG.md) file.
 
 ## TODO
 
-See our [TODO](http://rubydoc.info/gems/votd/file/TODO.md) file.
+See our [TODO](https://github.com/doctorbh/votd/blob/master/TODO.md) file.
 
 ## Authors
 
@@ -100,4 +103,4 @@ Stephen Clarke <doctorbh@ninjanizr.com>
 
 (The MIT License)
 
-&copy; 2012 Christopher Clarke, Stephen Clarke. See [LICENSE](http://rubydoc.info/gems/votd/1.0.0/file/LICENSE) for details.
+&copy; 2012 Christopher Clarke, Stephen Clarke. See [LICENSE](https://github.com/doctorbh/votd/blob/master/LICENSE) for details.
