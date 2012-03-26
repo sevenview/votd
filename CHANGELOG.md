@@ -1,4 +1,6 @@
 # Changelog
+* CURRENT ITERATION
+  * Remove any reference to Ruby 1.8.7. Will not be supporting.
 
 * March 26, 2012 1.2.0 release
   * Refactored shared code from BibleGateway and NetBible into a Base class

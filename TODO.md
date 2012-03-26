@@ -8,6 +8,4 @@
 
 * Enable support for more translations from [Bible Gateway](http://www.biblegateway.com/usage/votd/docs/)
 
-* Ensure Ruby 1.8.7 compatibility.
-
 * Add some kind of simple caching
