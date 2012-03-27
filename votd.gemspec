@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Steve Clarke", "Chris Clarke"]
   gem.email         = ["doctorbh@ninjanizr.com", "beakr@ninjanizr.com"]
   gem.summary       = %q{Generate a (Bible) Verse of the Day using various web service wrappers}
-  gem.homepage      = "https://github.com/doctorbh/votd"
+  gem.homepage      = "http://doctorbh.github.com/votd"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
