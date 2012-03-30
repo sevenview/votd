@@ -1,6 +1,6 @@
 ## Todo
 
-* Generate an appropriate VOTD from a static file if there's any error communicating with the VOTD API. (e.g. John 3:16)
+* Generate an appropriate VotD from a static file if there's any error communicating with the VotD API. (e.g. John 3:16)
 
 * Update `votd` command-line version. Currently only a bare stub of an app.
 

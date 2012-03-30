@@ -1,5 +1,11 @@
 # Changelog
 * CURRENT ITERATION
+  * New `copyright` attribute containing any copyright information provided
+    by the VotD service. This may will cause any existing use of
+    `Votd.BibleGateway.text` to lose copyright data unless you add it.
+    (Previously, we were just using the copyright data that Bible Gateway
+    appended to the end of the Bible text.)
+    Bible Gateway requires that you add this copyright data. 
   * Remove any reference to Ruby 1.8.7. Will not be supporting.
 
 * March 26, 2012 1.2.0 release

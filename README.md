@@ -47,6 +47,7 @@ To use VotD in your code:
     votd.text        # For by grace you are saved through faith...
     votd.date        # 2012-03-24
     votd.version     # NETBible
+    votd.copyright   # Copyright (c)…
     
     votd.to_html     # <p class="votd-text">For by grace you are saved through faith...
     
