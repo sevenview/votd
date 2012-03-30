@@ -11,6 +11,7 @@ module Votd
     URI = "http://labs.bible.org/api/?passage=votd&type=json"
 
     # Initializes the NetBible class
+    # @return [Votd::NetBible]
     def initialize
       super
     end

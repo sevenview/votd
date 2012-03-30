@@ -26,4 +26,16 @@ describe "Votd::Base" do
       votd.date.should == Date.today
     end
   end
+
+  describe ".copyright" do
+    it "returns nil copyright information" do
+      votd.copyright.should be_nil
+    end
+  end
+
+  describe ".to_html" do
+    it "returns a HTML version" do
+      votd.to_html.should == File.read(fixture("base.html"))
+    end
+  end
 end

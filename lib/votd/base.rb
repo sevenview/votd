@@ -26,14 +26,21 @@ module Votd
     # @return [String] the bible translation used for this VotD
     attr_reader :version
 
+    # @example
+    #    votd.copyright # "Brought to you by BibleGateway.com. Copyright (C) . All Rights Reserved."
+    # @return [String] any copyright information supplied by VotD provider
+    attr_reader :copyright
+
     # The default Bible version to use if none is given and no other default
     # is provided
     DEFAULT_BIBLE_VERSION = "KJV"
 
     # Initializes the class and retrieves the verse of the day.
+    # @return [Base]
     def initialize
       @text      = ""
       @reference = ""
+      @copyright = nil
       @date      = Date.today
       get_votd
     end

@@ -7,23 +7,39 @@ describe "Votd::BibleGateway" do
     votd.should be_a(Votd::BibleGateway)
   end
 
-  it "has a .date" do
-    votd.date.should == Date.today
+  describe ".text" do
+    it "returns the correct scripture verse" do
+      votd.text.should == "If we confess our sins, he is faithful and just and will forgive us our sins and purify us from all unrighteousness."
+    end
   end
 
-  it "has a .reference" do
-    votd.reference.should == "1 John 1:9"
+  describe ".reference" do
+    it "returns the correct scripture reference" do
+      votd.reference.should == "1 John 1:9"
+    end
   end
 
-  it "has a .text" do
-    votd.text.should == "&ldquo;If we confess our sins, he is faithful and just and will forgive us our sins and purify us from all unrighteousness.&rdquo;<br/><br/> Brought to you by <a href=\"http://www.biblegateway.com\">BibleGateway.com</a>. Copyright (C) . All Rights Reserved."
+  describe ".version" do
+    it "returns the correct bible version" do
+      votd.version.should == "NIV"
+    end
   end
 
-  it "has a .version" do
-    votd.version.should == "NIV"
+  describe ".date" do
+    it "returns the correct date" do
+      votd.date.should == Date.today
+    end
   end
 
-  it "returns a HTML version" do
-    votd.to_html.should == File.read(fixture("bible_gateway.html"))
+  describe ".copyright" do
+    it "returns copyright information" do
+      votd.copyright.should == "Brought to you by BibleGateway.com. Copyright (C) . All Rights Reserved."
+    end
+  end
+
+  describe ".to_html" do
+    it "returns a HTML version" do
+      votd.to_html.should == File.read(fixture("bible_gateway.html"))
+    end
   end
 end
