@@ -1,5 +1,5 @@
 # Changelog
-* CURRENT ITERATION
+* March 30, 2010 2.0.0 release
   * New `copyright` attribute containing any copyright information provided
     by the VotD service. This may will cause any existing use of
     `Votd.BibleGateway.text` to lose copyright data unless you add it.
