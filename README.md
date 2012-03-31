@@ -53,7 +53,7 @@ To use VotD in your code:
 
 You can use the built-in formatted HTML:
     
-    votd.to_html     # <p class="votd-text">For by grace you are saved through faith...
+    votd.to_html
     
 Which by default looks like the following:
 
@@ -65,20 +65,21 @@ Which by default looks like the following:
 
 You can then use the provided CSS classes to style the VotD.
 
-You may also provide custom HTML text by using the `custom_html` method with a block:
+You may also provide custom HTML text by using the `.custom_html` method with a block:
     
     votd.custom_html do |votd|
       "<p>#{votd.reference} - #{votd.text} (#{votd.version})</p>"
     end
 
-    # votd.to_html now outputs:
-    # <p>John 3:16 - For God so loved... (KJV)</p>
+`votd.to_html` now outputs:
+
+    <p>John 3:16 - For God so loved... (KJV)</p>
 
 ### Outputting Text
 
 You can use the built-in formatted Text:
 
-    votd.to_text    # For God so loved… -- John 3:16 (KJV)
+    votd.to_text
     
 Which by default looks like the following:
 
@@ -86,9 +87,9 @@ Which by default looks like the following:
     that whosoever believeth in him should not perish, but have
     everlasting life. -- John 3:16 (KJV)
     
-`to_text` is also aliased to `to_s`
+`.to_text` is also aliased to `.to_s`
     
-You can provide custom Text formatting by using the `custom_text` method with a block:
+You can provide custom Text formatting by using the `.custom_text` method with a block:
 
     votd.custom_text do |votd|
       "#{votd.reference}|#{votd.text}|#{votd.version}"
@@ -98,7 +99,7 @@ Which outputs:
 
     John 3:16|For God so loved...|(KJV)
     
-This returns the custom formatted text, or you can call the `to_text` method
+This returns the custom formatted text, or you can call the `.to_text` method
 when ready, and your custom text will be output.
 
 ## Command Line
