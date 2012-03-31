@@ -48,10 +48,14 @@ To use VotD in your code:
     votd.date        # 2012-03-24
     votd.version     # NIV
     votd.copyright   # Copyright © ...
+
+### Using HTML
+
+You can use the built-in formatted HTML:
     
     votd.to_html     # <p class="votd-text">For by grace you are saved through faith...
     
-Full text of HTML formatted VotD looks like the following
+Which by default looks like the following:
 
     <p class="votd-text">For by grace you are saved through faith... it is not from works, so that no one can boast.</p>
     <p>
@@ -61,7 +65,7 @@ Full text of HTML formatted VotD looks like the following
 
 You can then use the provided CSS classes to style the VotD.
 
-You may also provide custom HTML text by using the `custom_html` method with a block. **(currently only available in HEAD, not yet released)**
+You may also provide custom HTML text by using the `custom_html` method with a block:
     
     votd.custom_html do |votd|
       "<p>#{votd.reference} - #{votd.text} (#{votd.version})</p>"
@@ -70,6 +74,32 @@ You may also provide custom HTML text by using the `custom_html` method with a b
     # votd.to_html now outputs:
     # <p>John 3:16 - For God so loved... (KJV)</p>
 
+### Using Text
+
+You can use the built-in formatted Text:
+
+    votd.to_text    # For God so loved… -- John 3:16 (KJV)
+    
+Which by default looks like the following:
+
+    For God so loved the world, that he gave his only begotten Son,
+    that whosoever believeth in him should not perish, but have
+    everlasting life. -- John 3:16 (KJV)
+    
+`to_text` is also aliased to `to_s`
+    
+You can provide custom Text formatting by using the `custom_text` method with a block:
+
+    votd.custom_text do |votd|
+      "#{votd.reference}|#{votd.text}|#{votd.version}"
+    end
+    
+Which outputs:
+
+    John 3:16|For God so loved...|(KJV)
+    
+This returns the custom formatted text, or you can call the `to_text` method
+when ready, and your custom text will be output.
 
 ## Command Line
 For command-line usage see [here](https://github.com/doctorbh/votd/wiki/Shell-Tool)

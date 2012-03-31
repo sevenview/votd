@@ -40,7 +40,7 @@ describe "Votd::NETBible" do
 
   describe ".to_html" do
     it "returns a HTML version" do
-      votd.to_html.should == File.read(fixture("netbible.html"))
+      votd.to_html.should == read_fixture("netbible/netbible.html")
     end
   end
 
@@ -49,7 +49,28 @@ describe "Votd::NETBible" do
       votd.custom_html do |votd|
         "<p>#{votd.reference}|#{votd.text}|#{votd.version}</p>"
       end
-      votd.to_html.should == "<p>Ephesians 2:8-9|For by grace you are saved through faith... it is not from works, so that no one can boast.|NETBible</p>"
+      votd.to_html.should == read_fixture("netbible/netbible_custom.html")
+    end
+  end
+
+  describe ".to_text" do
+    it "returns a text-formatted version" do
+      votd.to_text.should == read_fixture("netbible/netbible.txt")
+    end
+
+    it "is aliased to .to_s" do
+      votd.to_s.should == read_fixture("netbible/netbible.txt")
+    end
+  end
+
+  describe ".custom_text" do
+    it "overrides the default.to_text formatting" do
+      text_from_block = votd.custom_text do |votd|
+        "#{votd.reference}|#{votd.text}|#{votd.version}"
+      end
+      desired_output = read_fixture("netbible/netbible_custom.txt")
+      text_from_block.should == desired_output
+      votd.to_text.should    == desired_output
     end
   end
 

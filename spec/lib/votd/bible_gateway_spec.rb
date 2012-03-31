@@ -39,7 +39,7 @@ describe "Votd::BibleGateway" do
 
   describe ".to_html" do
     it "returns a HTML version" do
-      votd.to_html.should == File.read(fixture("bible_gateway.html"))
+      votd.to_html.should == read_fixture("bible_gateway/bible_gateway.html")
     end
   end
 
@@ -48,7 +48,28 @@ describe "Votd::BibleGateway" do
       votd.custom_html do |votd|
         "<p>#{votd.reference}|#{votd.text}|#{votd.version}</p>"
       end
-      votd.to_html.should == "<p>1 John 1:9|If we confess our sins, he is faithful and just and will forgive us our sins and purify us from all unrighteousness.|NIV</p>"
+      votd.to_html.should == read_fixture("bible_gateway/bible_gateway_custom.html")
+    end
+  end
+
+  describe ".to_text" do
+    it "returns a text-formatted version" do
+      votd.to_text.should == read_fixture("bible_gateway/bible_gateway.txt")
+    end
+
+    it "is aliased to .to_s" do
+      votd.to_s.should == read_fixture("bible_gateway/bible_gateway.txt")
+    end
+  end
+
+  describe ".custom_text" do
+    it "overrides the default.to_text formatting" do
+      text_from_block = votd.custom_text do |votd|
+        "#{votd.reference}|#{votd.text}|#{votd.version}"
+      end
+      desired_output = read_fixture("bible_gateway/bible_gateway_custom.txt")
+      text_from_block.should == desired_output
+      votd.to_text.should    == desired_output
     end
   end
 

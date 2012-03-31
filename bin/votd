@@ -7,9 +7,15 @@ require 'votd'
 
 votd = Votd::BibleGateway.new
 
-puts "===================================================="
-puts "          VERSE OF THE DAY for #{votd.date.to_s}"
-puts "===================================================="
-puts votd.text
-puts "#{votd.reference} (#{votd.version})"
+def banner(width = 78)
+  width = yield.size
+  puts "=" * width
+  puts yield
+  puts "=" * width
+end
 
+banner do
+  "VERSE OF THE DAY for #{votd.date.to_s}"
+end
+
+puts votd.to_text

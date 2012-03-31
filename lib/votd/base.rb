@@ -43,6 +43,7 @@ module Votd
       @copyright   = nil
       @date        = Date.today
       @custom_html = nil
+      @custom_text = nil
       get_votd
     end
 
@@ -67,7 +68,7 @@ module Votd
       @custom_html ||= default_html
     end
 
-    # Override the {#to_html} with your own custom HTML. Use a block to specify your
+    # Overrides the {#to_html} method with your own custom HTML. Use a block to specify your
     # custom HTML.
     # @example
     #   votd.custom_html do |votd|
@@ -91,9 +92,27 @@ module Votd
     # You can override this formatting with the {#custom_text} method.
     # @return [String] the VotD formatted as plain text
     def to_text
-      "#{@text} -- #{@reference} (#{@version})"
+      @custom_text ||= "#{@text} -- #{@reference} (#{@version})"
     end
     alias_method :to_s, :to_text
+
+    # Overrides the {#to_text} with your own custom text. Use a block to specify
+    # your custom text.
+    # @example
+    #   votd.custom_text do |votd|
+    #     "#{votd.reference}|#{votd.text}|#{votd.version}"
+    #   end
+    #
+    #   # outputs:
+    #   John 3:16|For God so loved...|(KJV)
+    #
+    # This returns the custom formatted text, or you can call the {#to_text} method
+    # when ready, and your custom text will be output.
+    #
+    # @return [String] the VotD formatted as custom text
+    def custom_text
+      @custom_text = yield(self)
+    end
 
     protected
     # Gets the VotD. For {Votd::Base} this will return default values and can be
