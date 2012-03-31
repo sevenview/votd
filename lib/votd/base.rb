@@ -38,11 +38,11 @@ module Votd
     # Initializes the class and retrieves the verse of the day.
     # @return [Base]
     def initialize
-      @text      = ""
-      @reference = ""
-      @copyright = nil
-      @date      = Date.today
-      @to_html   = nil
+      @text        = ""
+      @reference   = ""
+      @copyright   = nil
+      @date        = Date.today
+      @custom_html = nil
       get_votd
     end
 
@@ -64,7 +64,7 @@ module Votd
       default_html << "<span class=\"votd-reference\"><strong>#{@reference}</strong></span>\n"
       default_html << "<span class=\"votd-version\"><em>(#{@version})</em></span>\n"
       default_html << "</p>\n"
-      @to_html ||= default_html
+      @custom_html ||= default_html
     end
 
     # Override the {#to_html} with your own custom HTML. Use a block to specify your
@@ -82,8 +82,7 @@ module Votd
     #
     # @return [String] the VotD formatted as custom HTML
     def custom_html
-      @to_html = yield(self)
-      return @to_html
+      @custom_html = yield(self)
     end
 
     protected
