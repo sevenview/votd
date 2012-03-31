@@ -47,4 +47,14 @@ describe "Votd::Base" do
       votd.to_html.should == "<p>John 3:16|For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.|KJV</p>"
     end
   end
+
+  describe ".to_text" do
+    it "returns a Text-formatted version" do
+      votd.to_text.should == File.read(fixture("base.txt"))
+    end
+
+    it "is aliased to .to_s" do
+      votd.to_s.should == File.read(fixture("base.txt"))
+    end
+  end
 end

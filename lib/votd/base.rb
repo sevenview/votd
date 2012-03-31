@@ -10,7 +10,7 @@ module Votd
     attr_reader :text
 
     # @example
-    #    votd.reference  # "Ephesians 2:8-9"
+    #   votd.reference  # "Ephesians 2:8-9"
     #
     # @return [String] the scripture reference.
     attr_reader :reference
@@ -22,12 +22,12 @@ module Votd
     attr_reader :date
 
     # @example
-    #     votd.version  # "NIV"
+    #   votd.version  # "NIV"
     # @return [String] the bible translation used for this VotD
     attr_reader :version
 
     # @example
-    #    votd.copyright # "Brought to you by BibleGateway.com. Copyright (C) . All Rights Reserved."
+    #   votd.copyright # "Brought to you by BibleGateway.com. Copyright (C) . All Rights Reserved."
     # @return [String] any copyright information supplied by VotD provider
     attr_reader :copyright
 
@@ -84,6 +84,16 @@ module Votd
     def custom_html
       @custom_html = yield(self)
     end
+
+    # Returns the Verse of the Day formatted as plain text. e.g.
+    #   For God so loved the world... -- John 3:16 (KJV)
+    #
+    # You can override this formatting with the {#custom_text} method.
+    # @return [String] the VotD formatted as plain text
+    def to_text
+      "#{@text} -- #{@reference} (#{@version})"
+    end
+    alias_method :to_s, :to_text
 
     protected
     # Gets the VotD. For {Votd::Base} this will return default values and can be
