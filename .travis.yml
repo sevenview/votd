@@ -9,5 +9,6 @@ notifications:
     recipients:
       - beakr@ninjanizr.com
       - doctorbh@ninjanizr.com
+      - main@seven7.flowdock.com
     on_success: always
     on_failure: always
