@@ -32,6 +32,14 @@ module Votd
     # @return [String] any copyright information supplied by VotD provider
     attr_reader :copyright
 
+    # The default Bible text to use. This is used in case of an error
+    # retrieving the VotD from a remote server
+    DEFAULT_BIBLE_TEXT = "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."
+
+    # The default Bible reference to use. This is used in case of an error
+    # retrieving the VotD from a remote server
+    DEFAULT_BIBLE_REFERENCE = "John 3:16"
+
     # The default Bible version to use if none is given and no other default
     # is provided
     DEFAULT_BIBLE_VERSION = "KJV"
@@ -120,9 +128,14 @@ module Votd
     # used in the event of an exception thrown when getting data from live web
     # services in subclasses of {Votd::Base}
     def get_votd
-      @text      = "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."
-      @reference = "John 3:16"
+      set_defaults
+    end
+
+    def set_defaults
+      @text      = DEFAULT_BIBLE_TEXT
+      @reference = DEFAULT_BIBLE_REFERENCE
       @version   = DEFAULT_BIBLE_VERSION
+      @copyright = nil
     end
 
   end

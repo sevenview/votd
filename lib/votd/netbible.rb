@@ -43,6 +43,11 @@ module Votd
       @text = verses.join(" ")
 
       @version = BIBLE_VERSION
+
+    rescue
+      # use default info for VotD
+      set_defaults
+      # @todo Add logging
     end
   end
 end

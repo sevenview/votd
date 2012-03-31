@@ -74,4 +74,16 @@ describe "Votd::BibleGateway" do
     end
   end
 
+  context "When an error occurrs" do
+    before do
+      register_broken_uri(Votd::BibleGateway::URI)
+    end
+
+    it "falls back to default VotD values" do
+      votd.version.should   == Votd::Base::DEFAULT_BIBLE_VERSION
+      votd.reference.should == Votd::Base::DEFAULT_BIBLE_REFERENCE
+      votd.text.should      == Votd::Base::DEFAULT_BIBLE_TEXT
+    end
+  end
+
 end

@@ -1,4 +1,7 @@
 # Changelog
+* Current Iteration
+  * VotD will now return a default scripture of John 3:16 in KJV if there's
+    any error enountered when accessing the VotD from the source server.
 * March 31, 2012 (2.1.0)
   * [Add] `.custom_html` method that takes a block of custom formatted
     HTML to override the `.to_html` method.

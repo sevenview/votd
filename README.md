@@ -48,6 +48,9 @@ To use VotD in your code:
     votd.date        # 2012-03-24
     votd.version     # NIV
     votd.copyright   # Copyright © ...
+    
+*NOTE: If there's an error encountered while accessing the VotD service a default verse of John 3:16 in the KVJ
+is returned. This ensures that something is returned no matter what.*
 
 ### Outputting HTML
 

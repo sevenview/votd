@@ -27,7 +27,6 @@ module Votd
 
     private
 
-    # @todo Generate default VotD from Votd::Base if there's a problem getting feed
     # Gets the votd from the Bible Gateway RSS feed
     # @return [String]
     def get_votd
@@ -39,6 +38,10 @@ module Votd
       @text        = cleaned_text
       @copyright   = get_copyright(entry.content)
       @version     = BIBLE_VERSION
+    rescue
+      # use default info for VotD
+      set_defaults
+      # @todo Add logging
     end
 
     # Cleans up the text. Removes:

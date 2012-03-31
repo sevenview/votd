@@ -17,10 +17,16 @@ RSpec.configure do |config|
 
   # Register Bible Gateway URI
   FakeWeb.register_uri(:get, Votd::BibleGateway::URI,
-                       :body => open(fixture("bible_gateway/bible_gateway.rss")))
+                       body: open(fixture("bible_gateway/bible_gateway.rss")))
 
   # Register NETBible URI
   FakeWeb.register_uri(:get, Votd::NetBible::URI,
-                       :body => open(fixture("netbible/netbible.json")))
+                       body: open(fixture("netbible/netbible.json")))
 
+  # Register broken uri
+  def register_broken_uri(uri)
+    FakeWeb.register_uri(:get, uri,
+                         body: "Oopsies",
+                         status: ["404", "Not Found"])
+  end
 end
