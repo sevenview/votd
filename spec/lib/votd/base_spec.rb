@@ -38,4 +38,13 @@ describe "Votd::Base" do
       votd.to_html.should == File.read(fixture("base.html"))
     end
   end
+
+  describe ".custom_html" do
+    it "overrides the default .to_html formatting" do
+      votd.custom_html do |votd|
+        "<p>#{votd.reference}|#{votd.text}|#{votd.version}</p>"
+      end
+      votd.to_html.should == "<p>John 3:16|For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.|KJV</p>"
+    end
+  end
 end

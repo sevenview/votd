@@ -43,4 +43,14 @@ describe "Votd::NETBible" do
       votd.to_html.should == File.read(fixture("netbible.html"))
     end
   end
+
+  describe ".custom_html" do
+    it "overrides the default .to_html formatting" do
+      votd.custom_html do |votd|
+        "<p>#{votd.reference}|#{votd.text}|#{votd.version}</p>"
+      end
+      votd.to_html.should == "<p>Ephesians 2:8-9|For by grace you are saved through faith... it is not from works, so that no one can boast.|NETBible</p>"
+    end
+  end
+
 end

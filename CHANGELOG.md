@@ -1,4 +1,7 @@
 # Changelog
+* CURRENT ITERATION
+  * Add `custom_html` method that takes a block of custom formatted
+    HTML to override the `to_html` method.
 * March 30, 2010 2.0.0 release
   * New `copyright` attribute containing any copyright information provided
     by the VotD service. This may will cause any existing use of

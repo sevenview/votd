@@ -42,4 +42,14 @@ describe "Votd::BibleGateway" do
       votd.to_html.should == File.read(fixture("bible_gateway.html"))
     end
   end
+
+  describe ".custom_html" do
+    it "overrides the default .to_html formatting" do
+      votd.custom_html do |votd|
+        "<p>#{votd.reference}|#{votd.text}|#{votd.version}</p>"
+      end
+      votd.to_html.should == "<p>1 John 1:9|If we confess our sins, he is faithful and just and will forgive us our sins and purify us from all unrighteousness.|NIV</p>"
+    end
+  end
+
 end

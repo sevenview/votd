@@ -42,6 +42,7 @@ module Votd
       @reference = ""
       @copyright = nil
       @date      = Date.today
+      @to_html   = nil
       get_votd
     end
 
@@ -53,16 +54,36 @@ module Votd
     #    </p>
     #
     # This should provide sufficient hooks to style the CSS. If this is not
-    # sufficient, you can build the HTML by hand using the individual data.
+    # sufficient, you can build the HTML by hand using the individual data,
+    # or use the {#custom_html} method to override the HTML format.
     #
     # @return [String] the VotD formatted as HTML
     def to_html
-      html =  "<p class=\"votd-text\">#{@text}</p>\n"
-      html << "<p>\n"
-      html << "<span class=\"votd-reference\"><strong>#{@reference}</strong></span>\n"
-      html << "<span class=\"votd-version\"><em>(#{@version})</em></span>\n"
-      html << "</p>\n"
-      html
+      default_html =  "<p class=\"votd-text\">#{@text}</p>\n"
+      default_html << "<p>\n"
+      default_html << "<span class=\"votd-reference\"><strong>#{@reference}</strong></span>\n"
+      default_html << "<span class=\"votd-version\"><em>(#{@version})</em></span>\n"
+      default_html << "</p>\n"
+      @to_html ||= default_html
+    end
+
+    # Override the {#to_html} with your own custom HTML. Use a block to specify your
+    # custom HTML.
+    # @example
+    #   votd.custom_html do |votd|
+    #     "<p>#{votd.reference} - #{votd.text} (#{votd.version})</p>"
+    #   end
+    #
+    #   # outputs:
+    #   # <p>John 3:16 - For God so loved... (KJV)</p>
+    #
+    # This returns the custom formatted HTML, or you can call the {#to_html} method
+    # when ready and your custom HTML will be output.
+    #
+    # @return [String] the VotD formatted as custom HTML
+    def custom_html
+      @to_html = yield(self)
+      return @to_html
     end
 
     protected

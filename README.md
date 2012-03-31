@@ -61,6 +61,17 @@ Full text of HTML formatted VotD looks like the following
 
 You can then use the provided CSS classes to style the VotD.
 
+You may also provide custom HTML text by using the `custom_html` method with a block.
+    
+    votd.custom_html do |votd|
+      "<p>#{votd.reference} - #{votd.text} (#{votd.version})</p>"
+    end
+
+    # votd.to_html now outputs:
+    # <p>John 3:16 - For God so loved... (KJV)</p>
+
+
+## Command Line
 For command-line usage see [here](https://github.com/doctorbh/votd/wiki/Shell-Tool)
 
 ## Documentation
