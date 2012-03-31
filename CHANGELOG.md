@@ -1,11 +1,11 @@
 # Changelog
-* CURRENT ITERATION
+* CURRENT ITERATION (2.1.0.pre)
   * Add `custom_html` method that takes a block of custom formatted
     HTML to override the `to_html` method.
 * March 30, 2010 2.0.0 release
   * New `copyright` attribute containing any copyright information provided
     by the VotD service. This may will cause any existing use of
-    `Votd.BibleGateway.text` to lose copyright data unless you add it.
+    `Votd::BibleGateway.text` to lose copyright data unless you add it.
     (Previously, we were just using the copyright data that Bible Gateway
     appended to the end of the Bible text.)
     Bible Gateway requires that you add this copyright data. 

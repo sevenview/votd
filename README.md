@@ -61,7 +61,7 @@ Full text of HTML formatted VotD looks like the following
 
 You can then use the provided CSS classes to style the VotD.
 
-You may also provide custom HTML text by using the `custom_html` method with a block.
+You may also provide custom HTML text by using the `custom_html` method with a block. **(currently only available in HEAD, not yet released)**
     
     votd.custom_html do |votd|
       "<p>#{votd.reference} - #{votd.text} (#{votd.version})</p>"
