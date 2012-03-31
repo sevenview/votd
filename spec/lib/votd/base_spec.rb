@@ -15,9 +15,10 @@ describe "Votd::Base" do
     end
   end
 
-  describe ".version" do
+  describe ".version / .translation" do
     it "returns the default bible version" do
-      votd.version.should == "KJV"
+      votd.translation.should == "KJV"
+      votd.version.should     == "KJV"
     end
   end
 

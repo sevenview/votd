@@ -20,9 +20,10 @@ describe "Votd::NETBible" do
     end
   end
 
-  describe ".version" do
+  describe ".version / .translation" do
     it "returns the correct bible version" do
-      votd.version.should == "NETBible"
+      votd.version.should     == "NETBible"
+      votd.translation.should == "NETBible"
     end
   end
 

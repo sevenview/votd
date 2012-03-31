@@ -19,9 +19,10 @@ describe "Votd::BibleGateway" do
     end
   end
 
-  describe ".version" do
+  describe ".version / .translation" do
     it "returns the correct bible version" do
-      votd.version.should == "NIV"
+      votd.version.should     == "NIV"
+      votd.translation.should == "NIV"
     end
   end
 

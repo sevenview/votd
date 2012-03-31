@@ -1,13 +1,16 @@
 # Changelog
 * CURRENT ITERATION (2.1.0.pre)
-  * [Add] `custom_html` method that takes a block of custom formatted
-    HTML to override the `to_html` method.
-  * [Add] `to_text` method that returns a text-formatted version of the VotD.
-    Aliased to `to_s`.
-  * [Add] `custom_text` method that takes a block of custom formatted text
-    to override the `to_text` method.
+  * [Add] `.custom_html` method that takes a block of custom formatted
+    HTML to override the `.to_html` method.
+  * [Add] `.to_text` method that returns a text-formatted version
+    of the VotD.
+    Aliased to `.to_s`.
+  * [Add] `.custom_text` method that takes a block of custom formatted
+    text to override the `.to_text` method.
+  * [Add] `.translation` -> aliased to `.version`.
+    
 * March 30, 2010 2.0.0 release
-  * New `copyright` attribute containing any copyright information provided
+  * New `.copyright` attribute containing any copyright information provided
     by the VotD service. This may will cause any existing use of
     `Votd::BibleGateway.text` to lose copyright data unless you add it.
     (Previously, we were just using the copyright data that Bible Gateway
