@@ -49,7 +49,7 @@ To use VotD in your code:
     votd.version     # NIV
     votd.copyright   # Copyright © ...
 
-### Using HTML
+### Outputting HTML
 
 You can use the built-in formatted HTML:
     
@@ -74,7 +74,7 @@ You may also provide custom HTML text by using the `custom_html` method with a b
     # votd.to_html now outputs:
     # <p>John 3:16 - For God so loved... (KJV)</p>
 
-### Using Text
+### Outputting Text
 
 You can use the built-in formatted Text:
 
