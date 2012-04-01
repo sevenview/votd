@@ -47,6 +47,9 @@ module Votd
     # Initializes the class and retrieves the verse of the day.
     # @return [Base]
     def initialize
+      @log = Logger.new(STDERR)
+      @log.level = Logger::ERROR
+
       @text        = ""
       @reference   = ""
       @copyright   = nil
@@ -144,6 +147,12 @@ module Votd
       @reference = DEFAULT_BIBLE_REFERENCE
       @version   = DEFAULT_BIBLE_VERSION
       @copyright = nil
+    end
+
+    def log_error(e, message)
+      @log.error message
+      @log.error "Error message (for debugging purposes) is:"
+      @log.error e
     end
 
   end

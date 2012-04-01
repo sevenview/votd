@@ -38,10 +38,11 @@ module Votd
       @text        = cleaned_text
       @copyright   = get_copyright(entry.content)
       @version     = BIBLE_VERSION
-    rescue
+    rescue => e
+      # Log the error and fall back to the default VotD data
+      log_error(e, "There was a problem with retrieving/parsing the VotD from the server. Falling back to default verse.")
       # use default info for VotD
       set_defaults
-      # @todo Add logging
     end
 
     # Cleans up the text. Removes:
