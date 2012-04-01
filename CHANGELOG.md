@@ -4,7 +4,9 @@ Changelog
 Current Iteration
 -----------------
 
-* Add custom exception type Votd::VotdError.
+* Added custom exception type `Votd::VotdError`
+* Added `Votd::Helper` module to provide common helper methods to all modules
+* Cleaned up command-line version to wrap text properly
 
 2.1.1
 -----
@@ -20,13 +22,13 @@ Current Iteration
 
 *March 31, 2012*
 
-* [Add] `.custom_html` method that takes a block of custom formatted
+* Added `.custom_html` method that takes a block of custom formatted
   HTML to override the `.to_html` method.
-* [Add] `.to_text` method that returns a text-formatted version
+* Added `.to_text` method that returns a text-formatted version
   of the VotD. Aliased to `.to_s`.
-* [Add] `.custom_text` method that takes a block of custom formatted
+* Added `.custom_text` method that takes a block of custom formatted
   text to override the `.to_text` method.
-* [Add] `.translation` -> aliased to `.version`.
+* Added `.translation` -> aliased to `.version`.
   
   
 2.0.0
@@ -40,7 +42,7 @@ Current Iteration
   (Previously, we were just using the copyright data that Bible Gateway
   appended to the end of the Bible text.)
   Bible Gateway requires that you add this copyright data. 
-* Remove any reference to Ruby 1.8.7. Will not be supporting.
+* Removed any reference to Ruby 1.8.7. Will not be supporting.
   
 
 1.2.0

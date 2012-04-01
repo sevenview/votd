@@ -5,17 +5,19 @@ $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
 require 'votd'
 
+include Votd::Helper
+
 votd = Votd::BibleGateway.new
+#votd = Votd::NetBible.new
+#votd = Votd::Base.new
 
-def banner(width = 78)
-  width = yield.size
-  puts "=" * width
-  puts yield
-  puts "=" * width
+LINE_WIDTH = 40
+
+puts banner(LINE_WIDTH) { "VERSE OF THE DAY for #{votd.date.to_s}" }
+puts "\n"
+puts word_wrap(votd.to_text, LINE_WIDTH)
+
+if votd.copyright
+  puts "\n"
+  puts banner(LINE_WIDTH) { word_wrap(votd.copyright, LINE_WIDTH) }
 end
-
-banner do
-  "VERSE OF THE DAY for #{votd.date.to_s}"
-end
-
-puts votd.to_text
