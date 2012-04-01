@@ -49,6 +49,10 @@ describe "Votd::Base" do
       html_from_block.should == desired_output
       votd.to_html.should    == desired_output
     end
+
+    it "generates a VotdError on error" do
+      expect{votd.custom_html}.to raise_error(Votd::VotdError)
+    end
   end
 
   describe ".to_text" do
@@ -71,4 +75,5 @@ describe "Votd::Base" do
       votd.to_text.should    == desired_output
     end
   end
+
 end

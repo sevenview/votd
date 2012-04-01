@@ -92,7 +92,11 @@ module Votd
     #
     # @return [String] the VotD formatted as custom HTML
     def custom_html
-      @custom_html = yield(self)
+      if block_given?
+        @custom_html = yield(self)
+      else
+        raise Votd::VotdError "You must use a block for this method"
+      end
     end
 
     # Returns the Verse of the Day formatted as plain text. e.g.
