@@ -95,7 +95,7 @@ module Votd
       if block_given?
         @custom_html = yield(self)
       else
-        raise Votd::VotdError "You must use a block for this method"
+        raise Votd::VotdError, "You must use a block with this method"
       end
     end
 
@@ -124,7 +124,11 @@ module Votd
     #
     # @return [String] the VotD formatted as custom text
     def custom_text
-      @custom_text = yield(self)
+      if block_given?
+        @custom_text = yield(self)
+      else
+        raise Votd::VotdError, "You must use a block with this method"
+      end
     end
 
     protected

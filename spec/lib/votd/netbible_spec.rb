@@ -52,6 +52,10 @@ describe "Votd::NETBible" do
       end
       votd.to_html.should == read_fixture("netbible/netbible_custom.html")
     end
+
+    it "generates a VotdError when not used with a block" do
+      expect{votd.custom_html}.to raise_error(Votd::VotdError)
+    end
   end
 
   describe ".to_text" do
@@ -73,9 +77,13 @@ describe "Votd::NETBible" do
       text_from_block.should == desired_output
       votd.to_text.should    == desired_output
     end
+
+    it "generates a VotdError when not used with a block" do
+      expect{votd.custom_text}.to raise_error(Votd::VotdError)
+    end
   end
 
-  context "When an error occurrs" do
+  context "When an error occurs" do
     before do
       register_broken_uri(Votd::NetBible::URI)
     end

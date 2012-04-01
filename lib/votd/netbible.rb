@@ -1,6 +1,4 @@
 module Votd
-  # @todo Clean up generated verse when it has trailing punctuation
-  #       and/or begins with lower-case. Substitute "..."
   # Retrieves a Verse of the Day from http://bible.org using the NETBible
   # translation.
   class NetBible < Votd::Base
@@ -17,7 +15,6 @@ module Votd
     end
 
     private
-    # @todo Generate default VotD from Votd::Base if there's a problem getting feed
     # Gets the verse in JSON format from bible.org
     def get_votd
       netbible_data = JSON.parse(HTTParty.get(URI))
@@ -44,7 +41,7 @@ module Votd
 
       @version = BIBLE_VERSION
 
-    rescue
+    rescue => e
       # use default info for VotD
       set_defaults
       # @todo Add logging

@@ -51,6 +51,10 @@ describe "Votd::BibleGateway" do
       end
       votd.to_html.should == read_fixture("bible_gateway/bible_gateway_custom.html")
     end
+
+    it "generates a VotdError when not used with a block" do
+      expect{votd.custom_html}.to raise_error(Votd::VotdError)
+    end
   end
 
   describe ".to_text" do
@@ -71,6 +75,10 @@ describe "Votd::BibleGateway" do
       desired_output = read_fixture("bible_gateway/bible_gateway_custom.txt")
       text_from_block.should == desired_output
       votd.to_text.should    == desired_output
+    end
+
+    it "generates a VotdError when not used with a block" do
+      expect{votd.custom_text}.to raise_error(Votd::VotdError)
     end
   end
 

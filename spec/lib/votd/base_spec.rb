@@ -50,7 +50,7 @@ describe "Votd::Base" do
       votd.to_html.should    == desired_output
     end
 
-    it "generates a VotdError on error" do
+    it "generates a VotdError when not used with a block" do
       expect{votd.custom_html}.to raise_error(Votd::VotdError)
     end
   end
@@ -73,6 +73,10 @@ describe "Votd::Base" do
       desired_output = read_fixture("base/base_custom.txt")
       text_from_block.should == desired_output
       votd.to_text.should    == desired_output
+    end
+
+    it "generates a VotdError when not used with a block" do
+      expect{votd.custom_text}.to raise_error(Votd::VotdError)
     end
   end
 
