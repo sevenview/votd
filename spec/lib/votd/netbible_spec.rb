@@ -1,6 +1,5 @@
 require 'spec_helper'
 require 'json'
-require 'fakeweb'
 
 describe "Votd::NETBible" do
   let(:votd) { Votd::NetBible.new }
