@@ -37,7 +37,7 @@ module Votd
       @reference = "#{bookname} #{chapter}:#{verse_numbers.join("-")}"
 
       # build the text
-      @text = verses.join(" ")
+      @text = strip_html_tags(verses.join(" "))
 
       @version = BIBLE_VERSION
 

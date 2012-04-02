@@ -1,4 +1,5 @@
 require 'feedzirra'
+
 module Votd
   # Retrieves a Verse of the Day from biblegateway.com using a variety
   # of translations.
@@ -69,12 +70,6 @@ module Votd
     # @return [String]
     def strip_html_quote_entities(text)
       text.gsub(/&.dquo;/, '')
-    end
-
-    # Removes HTML tags from the Bible text
-    # @return [String]
-    def strip_html_tags(text)
-      text.gsub(/<\/?[^>]*>/, '')
     end
 
     # Removes copyright text from the Bible text

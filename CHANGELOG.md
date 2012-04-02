@@ -7,6 +7,7 @@ Current Iteration
 * Added custom exception type `Votd::VotdError`
 * Added `Votd::Helper` module to provide common helper methods to all modules
 * Cleaned up command-line version to wrap text properly
+* Clean HTML tags from NetBible text when they are generated
 
 2.1.1
 -----

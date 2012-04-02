@@ -1,32 +1,27 @@
 require 'rspec'
 require 'votd'
-require 'fake_web'
-
-FakeWeb.allow_net_connect = false
+require 'webmock/rspec'
 
 RSpec.configure do |config|
   config.mock_with :rspec
+end
 
-  def fixture(filename)
-    File.join(File.dirname(__FILE__), 'fixtures', filename)
-  end
+# Fixtures
+#TODO rename to fixture_path
+def fixture_path(filename)
+  File.join(File.dirname(__FILE__), 'fixtures', filename)
+end
 
-  def read_fixture(filename)
-    File.read(fixture(filename))
-  end
+def read_fixture(filename)
+  File.read(fixture_path(filename))
+end
 
-  # Register Bible Gateway URI
-  FakeWeb.register_uri(:get, Votd::BibleGateway::URI,
-                       body: open(fixture("bible_gateway/bible_gateway.rss")))
+# Register a fake URI
+def fake_a_uri(uri, fixture_data)
+  stub_request(:get, uri).to_return(body: fixture_data)
+end
 
-  # Register NETBible URI
-  FakeWeb.register_uri(:get, Votd::NetBible::URI,
-                       body: open(fixture("netbible/netbible.json")))
-
-  # Register broken uri
-  def register_broken_uri(uri)
-    FakeWeb.register_uri(:get, uri,
-                         body: "Oopsies",
-                         status: ["404", "Not Found"])
-  end
+# Register a fake broken URI
+def fake_a_broken_uri(uri)
+  stub_request(:get, uri).to_return(body: "Oopsies")
 end

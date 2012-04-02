@@ -3,6 +3,10 @@ require 'spec_helper'
 describe "Votd::BibleGateway" do
   let(:votd) { Votd::BibleGateway.new }
 
+  before do
+    fake_a_uri(Votd::BibleGateway::URI, read_fixture("bible_gateway/bible_gateway.rss"))
+  end
+
   it "is a type of BibleGateway" do
     votd.should be_a(Votd::BibleGateway)
   end
@@ -84,7 +88,7 @@ describe "Votd::BibleGateway" do
 
   context "When an error occurrs" do
     before do
-      register_broken_uri(Votd::BibleGateway::URI)
+      fake_a_broken_uri(Votd::BibleGateway::URI)
     end
 
     it "falls back to default VotD values" do

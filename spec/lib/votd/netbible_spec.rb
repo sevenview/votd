@@ -1,8 +1,13 @@
 require 'spec_helper'
 require 'json'
+require 'fakeweb'
 
 describe "Votd::NETBible" do
   let(:votd) { Votd::NetBible.new }
+
+  before do
+    fake_a_uri(Votd::NetBible::URI, read_fixture("netbible/netbible.json"))
+  end
 
   it "is a type of NETBible" do
     votd.should be_a(Votd::NetBible)
@@ -11,6 +16,12 @@ describe "Votd::NETBible" do
   describe ".text" do
     it "returns the correct scripture verse" do
       votd.text.should == "For by grace you are saved through faith... it is not from works, so that no one can boast."
+    end
+
+    it "contains no HTML tags" do
+      fake_a_uri(Votd::NetBible::URI, read_fixture("netbible/netbible_with_html.json"))
+      votd = Votd::NetBible.new
+      votd.text.should_not =~ /<\/?[^>]*>/
     end
   end
 
@@ -85,7 +96,7 @@ describe "Votd::NETBible" do
 
   context "When an error occurs" do
     before do
-      register_broken_uri(Votd::NetBible::URI)
+      fake_a_broken_uri(Votd::NetBible::URI)
     end
 
     it "falls back to default VotD values" do
@@ -94,6 +105,5 @@ describe "Votd::NETBible" do
       votd.text.should      == Votd::Base::DEFAULT_BIBLE_TEXT
     end
   end
-
 
 end
