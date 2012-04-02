@@ -7,7 +7,6 @@ RSpec.configure do |config|
 end
 
 # Fixtures
-#TODO rename to fixture_path
 def fixture_path(filename)
   File.join(File.dirname(__FILE__), 'fixtures', filename)
 end
