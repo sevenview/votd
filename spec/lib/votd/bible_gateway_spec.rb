@@ -4,7 +4,7 @@ describe "Votd::BibleGateway" do
   let(:votd) { Votd::BibleGateway.new }
 
   before do
-    fake_a_uri(Votd::BibleGateway::URI, read_fixture("bible_gateway/bible_gateway.rss"))
+    fake_a_uri(Votd::BibleGateway::URI, "bible_gateway/bible_gateway.rss")
   end
 
   it "is a type of BibleGateway" do

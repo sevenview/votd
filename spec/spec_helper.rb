@@ -7,17 +7,17 @@ RSpec.configure do |config|
 end
 
 # Fixtures
-def fixture_path(filename)
+def expand_fixture_path(filename)
   File.join(File.dirname(__FILE__), 'fixtures', filename)
 end
 
 def read_fixture(filename)
-  File.read(fixture_path(filename))
+  File.read(expand_fixture_path(filename))
 end
 
 # Register a fake URI
-def fake_a_uri(uri, fixture_data)
-  stub_request(:get, uri).to_return(body: fixture_data)
+def fake_a_uri(uri, fixture_path)
+  stub_request(:get, uri).to_return(body: read_fixture(fixture_path))
 end
 
 # Register a fake broken URI
