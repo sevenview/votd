@@ -37,7 +37,11 @@ module Votd
       @reference = "#{bookname} #{chapter}:#{verse_numbers.join("-")}"
 
       # build the text
-      @text = strip_html_tags(verses.join(" "))
+      text = strip_html_tags(verses.join(" "))
+      # prepend ... if first letter is not a capital letter
+      text.sub!(/^([a-z])/, '...\1')
+
+      @text = text
 
       @version = BIBLE_VERSION
 

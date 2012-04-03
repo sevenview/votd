@@ -32,11 +32,5 @@ module Votd
       end * "\n"
     end
 
-    # Removes HTML tags from the given text
-    # @param [String] text the text you want to strip HTML tags from
-    # @return [String]
-    def strip_html_tags(text)
-      text.gsub(/<\/?[^>]*>/, '')
-    end
   end
 end

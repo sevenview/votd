@@ -39,7 +39,7 @@ module Votd
       @text        = cleaned_text
       @copyright   = get_copyright(entry.content)
       @version     = BIBLE_VERSION
-    rescue
+    rescue => e
       # use default info for VotD
       set_defaults
       # @todo Add logging
