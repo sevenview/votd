@@ -7,7 +7,11 @@ Current Iteration
 * Added custom exception type `Votd::VotdError`
 * Added `Votd::Helper` module to provide common helper methods to all modules
 * Cleaned up command-line version to wrap text properly
-* Clean HTML tags from NetBible text when they are generated
+* Now cleans HTML tags from NetBible text when they are generated
+* Now cleans verses that are sentence fragments:
+  * Prepend Bible verse with '...' if verse doesn't start with a capital
+    letter
+  * Append '...' if verse doesn't end with a period '.'
 
 2.1.1
 -----
@@ -16,8 +20,7 @@ Current Iteration
 
 * VotD will now return a default scripture of John 3:16 in KJV if there's
   any error enountered when accessing the VotD from the source server.
-    
-    
+
 2.1.0
 -----
 

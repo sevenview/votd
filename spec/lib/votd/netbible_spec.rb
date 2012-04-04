@@ -113,7 +113,7 @@ describe "Votd::NETBible" do
       votd.text.should =~ /^\.{3}\w/
     end
 
-    it "appends an ellipsis if first letter is not a period" do
+    it "appends an ellipsis if last character is not a period" do
       votd.text.should =~ /\w\.{1,3}$/
     end
 

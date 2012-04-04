@@ -98,4 +98,18 @@ describe "Votd::BibleGateway" do
     end
   end
 
+  context "When the text is not a proper sentence" do
+    before do
+      fake_a_uri(Votd::BibleGateway::URI, "bible_gateway/bible_gateway_with_partial.rss")
+    end
+
+    it "prepends an ellipsis if first letter is not a capital letter" do
+      votd.text.should =~ /^\.{3}\w/
+    end
+
+    it "appends an ellipsis if last character is not a period" do
+      votd.text.should =~ /ness\.{3}$/
+    end
+  end
+
 end

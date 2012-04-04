@@ -55,7 +55,9 @@ module Votd
       text = strip_html_quote_entities(text)
       text = strip_html_tags(text)
       text = strip_copyright_text(text)
-      text.strip
+      text.strip!
+      text = clean_verse_start(text)
+      text = clean_verse_end(text)
     end
 
     # Extracts copyright tag from the Bible text
