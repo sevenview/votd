@@ -1,8 +1,10 @@
 Changelog
 =========
 
-Current Iteration
+2.1.2
 -----------------
+
+*April 4, 2012*
 
 * Added custom exception type `Votd::VotdError`
 * Added `Votd::Helper` module to provide common helper methods to all modules
@@ -16,7 +18,7 @@ Current Iteration
 2.1.1
 -----
 
-*March 31, 2010*
+*March 31, 2012*
 
 * VotD will now return a default scripture of John 3:16 in KJV if there's
   any error enountered when accessing the VotD from the source server.
