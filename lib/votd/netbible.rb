@@ -40,6 +40,8 @@ module Votd
       text = strip_html_tags(verses.join(" "))
       # prepend ... if first letter is not a capital letter
       text.sub!(/^([a-z])/, '...\1')
+      # append ... if last char is anything but a period
+      text.sub!(/[^\.]$/, '...')
 
       @text = text
 
