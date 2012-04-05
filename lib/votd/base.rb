@@ -1,3 +1,5 @@
+require 'votd/helper'
+
 module Votd
   # This is the base class that all Votd lookup modules inherit from.
   # It provides default values for the Votd in the event of lookup failure.

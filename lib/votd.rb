@@ -7,8 +7,8 @@ require "httparty"
 module Votd
 end
 
-require "votd/version"
 require "votd/helper"
+require "votd/version"
 require "votd/votd_error"
 require "votd/base"
 require "votd/bible_gateway"

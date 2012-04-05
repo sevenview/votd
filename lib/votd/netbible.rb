@@ -1,3 +1,5 @@
+require 'votd/helper'
+
 module Votd
   # Retrieves a Verse of the Day from http://bible.org using the NETBible
   # translation.
@@ -37,7 +39,8 @@ module Votd
       @reference = "#{bookname} #{chapter}:#{verse_numbers.join("-")}"
 
       # build the text
-      text = strip_html_tags(verses.join(" "))
+      #text = strip_html_tags(verses.join(" "))
+      text = Helper::Text.strip_html_tags(verses.join(" "))
       text = clean_verse_start(text)
       text = clean_verse_end(text)
 
