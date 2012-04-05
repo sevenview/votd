@@ -1,7 +1,7 @@
 module Votd
-  # This module provides various helper methods used throughout the
-  # codebase.
   module Helper
+    # This module contains helper methods that support the
+    # command-line application
     module CommandLine
       extend self
       # Generates a text banner suitable for displaying from a command-line
@@ -34,16 +34,5 @@ module Votd
         end * "\n"
       end
     end
-
-    module Text
-      extend self
-      # Removes HTML tags from the given text
-      # @param [String] text the text you want to strip HTML tags from
-      # @return [String]
-      def strip_html_tags(text)
-        text.gsub(/<\/?[^>]*>/, '')
-      end
-    end
-
   end
 end

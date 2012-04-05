@@ -1,4 +1,4 @@
-require 'votd/helper'
+require 'votd/helper/text'
 
 module Votd
   # This is the base class that all Votd lookup modules inherit from.

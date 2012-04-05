@@ -7,7 +7,7 @@ require "httparty"
 module Votd
 end
 
-require "votd/helper"
+require "votd/helper/text"
 require "votd/version"
 require "votd/votd_error"
 require "votd/base"

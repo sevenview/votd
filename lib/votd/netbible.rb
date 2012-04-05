@@ -1,4 +1,4 @@
-require 'votd/helper'
+require 'votd/helper/text'
 
 module Votd
   # Retrieves a Verse of the Day from http://bible.org using the NETBible
