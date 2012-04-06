@@ -8,17 +8,17 @@ require 'votd/helper/command_line'
 
 include Votd::Helper::CommandLine
 
-votd = Votd::BibleGateway.new
-#votd = Votd::NetBible.new
+#votd = Votd::BibleGateway.new
+votd = Votd::NetBible.new
 #votd = Votd::Base.new
 
 LINE_WIDTH = 40
 
-puts banner(LINE_WIDTH) { "VERSE OF THE DAY for #{votd.date.to_s}" }
+banner("VERSE OF THE DAY for #{votd.date.to_s}", LINE_WIDTH) { }
 puts "\n"
 puts word_wrap(votd.to_text, LINE_WIDTH)
 
 if votd.copyright
   puts "\n"
-  puts banner(LINE_WIDTH) { word_wrap(votd.copyright, LINE_WIDTH) }
+  puts banner(word_wrap(votd.copyright, LINE_WIDTH), LINE_WIDTH)
 end

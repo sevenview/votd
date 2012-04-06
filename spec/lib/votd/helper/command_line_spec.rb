@@ -6,7 +6,8 @@ include Votd::Helper::CommandLine
 describe Votd::Helper::CommandLine do
   describe "#banner" do
     it "prints a banner wrapped at the correct location" do
-      banner(6){ "foo" }.should == "======\n foo  \n======"
+      $stdout.should_receive(:puts).with("======\n foo  \n======")
+      banner("foo", 6)
     end
   end
 

@@ -5,24 +5,25 @@ module Votd
     module CommandLine
       extend self
       # Generates a text banner suitable for displaying from a command-line
-      # utility, for example. Use with a block.
+      # utility.
       # @example
-      #   banner(20) { "My Banner" }
+      #   banner("My Banner", 20)
       #
       #   ->
       #   ====================
-      #   My Banner
+      #        My Banner
       #   ====================
       # @param [Integer] line_width number of columns for width
-      # @yield a block of text to print inside the banner
-      # @yieldreturn [String] the banner text
-      def banner(line_width=40)
+      # @param [String] text text to print inside the banner
+      # @return [nil]
+      def banner(text, line_width=40)
         banner_text = "=" * line_width
         banner_text << "\n"
-        banner_text << yield.center(line_width)
+        banner_text << text.center(line_width)
         banner_text << "\n"
-        banner_text << "=" * line_width
-        banner_text
+        banner_text <<  "=" * line_width
+        puts banner_text
+        nil
       end
 
       # Word-wraps text to the specified column width.
