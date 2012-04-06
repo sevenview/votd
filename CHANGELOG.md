@@ -1,6 +1,11 @@
 Changelog
 =========
 
+CURRENT ITERATION
+-----------------
+
+* Reorganized Helper modules
+
 2.1.2
 -----------------
 
