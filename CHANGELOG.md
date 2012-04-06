@@ -1,8 +1,16 @@
 Changelog
 =========
 
+2.1.4
+-----
+
+*April 6, 2012*
+
+* BUG FIX - NetBible was broken after the Helper::Text reorg. This
+  releases fixes the bug.
+
 2.1.3
------------------
+-----
 
 *April 5, 2012*
 
