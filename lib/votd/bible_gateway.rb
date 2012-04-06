@@ -1,4 +1,5 @@
 require 'feedzirra'
+require 'votd/helper/text'
 
 module Votd
   # Retrieves a Verse of the Day from biblegateway.com using a variety
@@ -53,18 +54,18 @@ module Votd
     # @return [String]
     def clean_text(text)
       text = strip_html_quote_entities(text)
-      text = strip_html_tags(text)
+      text = Helper::Text.strip_html_tags(text)
       text = strip_copyright_text(text)
       text.strip!
-      text = clean_verse_start(text)
-      text = clean_verse_end(text)
+      text = Helper::Text.clean_verse_start(text)
+      text = Helper::Text.clean_verse_end(text)
     end
 
     # Extracts copyright tag from the Bible text
     # @return [String]
     def get_copyright(text)
       text = strip_html_quote_entities(text)
-      text = strip_html_tags(text)
+      text = Helper::Text.strip_html_tags(text)
       text.match(@regex_copyright_text)[1]
     end
 
