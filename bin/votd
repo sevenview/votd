@@ -8,8 +8,8 @@ require 'votd/helper/command_line'
 
 include Votd::Helper::CommandLine
 
-#votd = Votd::BibleGateway.new
-votd = Votd::NetBible.new
+votd = Votd::BibleGateway.new
+#votd = Votd::NetBible.new
 #votd = Votd::Base.new
 
 LINE_WIDTH = 40
