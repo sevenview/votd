@@ -1,10 +1,13 @@
 Changelog
 =========
 
-CURRENT ITERATION
+2.1.3
 -----------------
 
-* Reorganized Helper modules
+*April 5, 2012*
+
+* Reorganized Helper modules (used internally only)
+* Minor bug fixes
 
 2.1.2
 -----------------
