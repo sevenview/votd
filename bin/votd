@@ -4,8 +4,9 @@
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
 require 'votd'
+require 'votd/helper/command_line'
 
-include Votd::Helper
+include Votd::Helper::CommandLine
 
 votd = Votd::BibleGateway.new
 #votd = Votd::NetBible.new
