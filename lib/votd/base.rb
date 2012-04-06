@@ -92,7 +92,10 @@ module Votd
     # This returns the custom formatted HTML, or you can call the {#to_html} method
     # when ready and your custom HTML will be output.
     #
-    # @return [String] the VotD formatted as custom HTML
+    # @yield [votd] the VotD itself
+    # @yieldparam [Base] votd the VotD itself
+    # @yieldreturn [String] the VotD formatted as custom HTML
+    # @raise {VotdError} when called without block format
     def custom_html
       if block_given?
         @custom_html = yield(self)
@@ -124,7 +127,10 @@ module Votd
     # This returns the custom formatted text, or you can call the {#to_text} method
     # when ready, and your custom text will be output.
     #
-    # @return [String] the VotD formatted as custom text
+    # @yield [votd] the VotD itself
+    # @yieldparam [Base] votd the VotD itself
+    # @yieldreturn [String] the VotD formatted as custom text
+    # @raise {VotdError} when called without block format
     def custom_text
       if block_given?
         @custom_text = yield(self)

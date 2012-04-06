@@ -14,7 +14,8 @@ module Votd
       #   My Banner
       #   ====================
       # @param [Integer] line_width number of columns for width
-      # @return [String] the banner text
+      # @yield a block of text to print inside the banner
+      # @yieldreturn [String] the banner text
       def banner(line_width=40)
         banner_text = "=" * line_width
         banner_text << "\n"
