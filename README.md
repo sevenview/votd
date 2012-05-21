@@ -39,7 +39,7 @@ To use VotD in your code:
 
     require 'votd'
     
-    votd = Votd.NetBible.new
+    votd = Votd::NetBible.new
     
     # or votd = Votd.BibleGateway.new
     
