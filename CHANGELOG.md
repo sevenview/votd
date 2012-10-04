@@ -1,6 +1,13 @@
 Changelog
 =========
 
+2.1.5
+-----
+
+*October 4, 2012*
+
+* Updated Feedzirra dependency
+
 2.1.4
 -----
 
