@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version = ">= 1.9.2"
 
   gem.add_runtime_dependency     "httparty"
-  gem.add_runtime_dependency     "feedzirra"
+  gem.add_runtime_dependency     "feedzirra", "~> 0.2.0.rc2"
   gem.add_development_dependency "rake"
   gem.add_development_dependency "webmock"
   gem.add_development_dependency "rspec"

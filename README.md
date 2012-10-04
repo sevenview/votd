@@ -39,9 +39,9 @@ To use VotD in your code:
 
     require 'votd'
     
-    votd = Votd.NetBible.new
+    votd = Votd::NetBible.new
     
-    # or votd = Votd.BibleGateway.new
+    # or votd = Votd::BibleGateway.new
     
     votd.reference   # Ephesians 2:8-9
     votd.text        # For by grace you are saved through faith...
