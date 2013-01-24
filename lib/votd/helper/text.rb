@@ -12,14 +12,14 @@ module Votd
       end
       
       # Prepends '...' if first letter is not a capital letter
-      # @param [String] the text to process
+      # @param [String] text the text to process
       # @return [String]
       def clean_verse_start(text)
         text.sub(/^([a-z])/, '...\1')
       end
 
       # Appends '...' if verse ends abruptly
-      # @param [String] the text to process
+      # @param [String] text the text to process
       # @return [String]
       def clean_verse_end(text)
         case text
