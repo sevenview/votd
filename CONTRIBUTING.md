@@ -33,7 +33,7 @@ another framework.
 Once your tests are done, work on the parsing system with your code,
 and you're ready to go!
 
-Just pop us a [Pull Request](https://github.com/doctorbh/votd/pulls)
+Just pop us a [Pull Request](https://github.com/Sevenview/votd/pulls)
 and you're code will be overviewed and ready to go soon.
 
 ## Summary

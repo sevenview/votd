@@ -81,7 +81,7 @@ Changelog
 
 * Refactored shared code from BibleGateway and NetBible into a Base class
   and inherited from this. This makes the code base easier to manage and
-  extend. See the [CONTRIBUTING](https://github.com/doctorbh/votd/blob/master/CONTRIBUTING.md)
+  extend. See the [CONTRIBUTING](https://github.com/Sevenview/votd/blob/master/CONTRIBUTING.md)
   page for more info on how to make use of the Base class.
 * Updated docs
   

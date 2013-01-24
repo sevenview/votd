@@ -1,6 +1,6 @@
 # VotD - (Bible) Verse of the Day
 
-[![Build Status](https://secure.travis-ci.org/doctorbh/votd.png?branch=master)](http://travis-ci.org/doctorbh/votd)
+[![Build Status](https://secure.travis-ci.org/doctorbh/votd.png?branch=master)](http://travis-ci.org/Sevenview/votd)
 
 VotD (Verse of the Day) is a Ruby Gem that wraps various web services that generate
 daily Bible Verses.
@@ -17,7 +17,7 @@ Other services are are planned:
  
 * [ESV Bible Web Service](http://www.esvapi.org/) - ESV Translation
 
-If you are able to contribute modules for any of these, please see our [CONTRIBUTING](https://github.com/doctorbh/votd/blob/master/CONTRIBUTING.md) file. Let us know before you begin work in case someone else has a module in-progress.
+If you are able to contribute modules for any of these, please see our [CONTRIBUTING](https://github.com/Sevenview/votd/blob/master/CONTRIBUTING.md) file. Let us know before you begin work in case someone else has a module in-progress.
 
 ## Installation
 
@@ -106,7 +106,7 @@ This returns the custom formatted text, or you can call the `.to_text` method
 when ready, and your custom text will be output.
 
 ## Command Line
-For command-line usage see [here](https://github.com/doctorbh/votd/wiki/Shell-Tool)
+For command-line usage see [here](https://github.com/Sevenview/votd/wiki/Shell-Tool)
 
 ## Documentation
 
@@ -114,11 +114,11 @@ Documentation may be found [here](http://rubydoc.info/gems/votd/file/README.md)
 
 ## Source Code
 
-Source code is available in our [GitHub repository](https://github.com/doctorbh/votd).
+Source code is available in our [GitHub repository](https://github.com/Sevenview/votd).
 
 ## Requests
 
-To submit bug, feature requests, patches see our [Issues List](https://github.com/doctorbh/votd/issues) on GitHub.
+To submit bug, feature requests, patches see our [Issues List](https://github.com/Sevenview/votd/issues) on GitHub.
 
 ## Contributing
 
@@ -129,24 +129,24 @@ To submit bug, feature requests, patches see our [Issues List](https://github.co
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create new Pull Request
 
-See more on [CONTRIBUTING](https://github.com/doctorbh/votd/blob/master/CONTRIBUTING.md).
+See more on [CONTRIBUTING](https://github.com/Sevenview/votd/blob/master/CONTRIBUTING.md).
 
 ## Changelog
 
-See our [CHANGELOG](https://github.com/doctorbh/votd/blob/master/CHANGELOG.md) file.
+See our [CHANGELOG](https://github.com/Sevenview/votd/blob/master/CHANGELOG.md) file.
 
 ## TODO
 
-See our [TODO](https://github.com/doctorbh/votd/blob/master/TODO.md) file.
+See our [TODO](https://github.com/Sevenview/votd/blob/master/TODO.md) file.
 
 ## Authors
 
 Christopher Clarke <beakr@ninjanizr.com>
 
-Stephen Clarke <doctorbh@ninjanizr.com>
+Stephen Clarke <steve@sevenview.ca>
 
 ## Copyright
 
 (The MIT License)
 
-&copy; 2012 Christopher Clarke, Stephen Clarke. See [LICENSE](https://github.com/doctorbh/votd/blob/master/LICENSE) for details.
+&copy; 2012 Christopher Clarke, Stephen Clarke. See [LICENSE](https://github.com/Sevenview/votd/blob/master/LICENSE) for details.
