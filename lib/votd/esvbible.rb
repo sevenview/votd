@@ -50,10 +50,3 @@ module Votd
     end
   end
 end
-
-votd = Votd::ESVBible.new
-puts votd.reference
-puts votd.text
-puts votd.date
-puts votd.version
-puts votd.copyright
