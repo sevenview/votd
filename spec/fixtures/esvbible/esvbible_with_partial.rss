@@ -1,0 +1,19 @@
+<rss version="2.0">
+	<channel>
+		<title>English Standard Version Bible Daily Verse</title>
+		<link>http://www.gnpcb.org/esv/share/rss2.0/</link>
+		<description>A daily verse from the ESV Bible.</description>
+		<webMaster>webmaster@crossway.org</webMaster>
+		<copyright>The Holy Bible, English Standard Version copyright 2001 by Crossway Bibles,
+				a publishing ministry of Good News Publishers. Used by permission. All rights reserved.
+		</copyright>
+		<ttl>1440</ttl>
+		<item>
+			<title>Romans 8:15</title>
+			<link>http://www.gnpcb.org/esv/search/?passage=Romans+8%3A15</link>
+			<guid isPermaLink="false">http://www.gnpcb.org/esv/search/?passage=Romans+8%3A15&amp;date=20131029</guid>
+			<pubDate>Tue, 29 Oct 2013 00:01:00 -0500</pubDate>
+			<description>for you did not receive the spirit of slavery to fall back into fear, but you have received the Spirit of adoption as sons, by whom we cry, &quot;Abba! Father</description>
+					</item>
+	</channel>
+</rss>
