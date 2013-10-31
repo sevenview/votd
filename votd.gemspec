@@ -3,7 +3,7 @@ require File.expand_path('../lib/votd/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Steve Clarke", "Chris Clarke"]
-  gem.email         = ["steve@sevenview.ca", "beakr@ninjanizr.com"]
+  gem.email         = ["steve@sevenview.ca", "chris@seven7.ca"]
   gem.summary       = %q{Generate a (Bible) Verse of the Day using various web service wrappers}
   gem.homepage      = "http://sevenview.github.com/votd"
 
@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.version       = Votd::VERSION
   gem.license       = "MIT"
 
-  gem.required_ruby_version = ">= 1.9.2"
+  gem.required_ruby_version = ">= 1.9.3"
 
   gem.add_runtime_dependency     "httparty"
   gem.add_runtime_dependency     "feedzirra", "~> 0.2.0.rc2"
