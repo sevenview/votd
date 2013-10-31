@@ -6,16 +6,15 @@ VotD (Verse of the Day) is a Ruby Gem that wraps various web services that gener
 daily Bible Verses.
 
 
-Currently the gem supports two VotD web services:
+Currently the gem supports three VotD web services:
 
 * [Bible.org](http://labs.bible.org) - NETBible Translation
 * [Bible Gateway](http://www.biblegateway.com) - NIV Translations (Currently only supporting the default NIV, but planning on adding more.)
+* [ESV Bible Web Service](http://www.esvapi.org/) - ESV Translation
 
 Other services are are planned:
 
-* [Bible Gateway](http://www.biblegateway.com) - More Translations
- 
-* [ESV Bible Web Service](http://www.esvapi.org/) - ESV Translation
+* [Bible Gateway](http://www.biblegateway.com) - More Translations 
 
 If you are able to contribute modules for any of these, please see our [CONTRIBUTING](https://github.com/Sevenview/votd/blob/master/CONTRIBUTING.md) file. Let us know before you begin work in case someone else has a module in-progress.
 
@@ -141,12 +140,14 @@ See our [TODO](https://github.com/Sevenview/votd/blob/master/TODO.md) file.
 
 ## Authors
 
-Christopher Clarke <beakr@ninjanizr.com>
+Christopher Clarke <chris@seven7.ca>
 
 Stephen Clarke <steve@sevenview.ca>
+
+[Sebastian Hirsch](https://github.com/SebastianHirsch) (ESV)
 
 ## Copyright
 
 (The MIT License)
 
-&copy; 2012 Christopher Clarke, Stephen Clarke. See [LICENSE](https://github.com/Sevenview/votd/blob/master/LICENSE) for details.
+&copy; 2012-2013 Christopher Clarke, Stephen Clarke. See [LICENSE](https://github.com/Sevenview/votd/blob/master/LICENSE) for details.

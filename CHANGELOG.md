@@ -1,6 +1,20 @@
 Changelog
 =========
 
+2.2.0
+-----
+*October 31, 2013*
+
+* Added ESV Support (thanks [Sebastian Hirsch](https://github.com/SebastianHirsch))
+
+2.1.6
+-----
+*January 24, 2013*
+
+* Fixed minor documentation error
+* Changed repository owner on GitHub
+
+
 2.1.5
 -----
 
