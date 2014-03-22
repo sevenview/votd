@@ -1,6 +1,7 @@
 # VotD - (Bible) Verse of the Day
 
 [![Build Status](https://secure.travis-ci.org/doctorbh/votd.png?branch=master)](http://travis-ci.org/Sevenview/votd)
+[![Code Climate](https://codeclimate.com/github/sevenview/votd.png)](https://codeclimate.com/github/sevenview/votd)
 
 VotD (Verse of the Day) is a Ruby Gem that wraps various web services that generate
 daily Bible Verses.
