@@ -150,4 +150,4 @@ Stephen Clarke <steve@sevenview.ca>
 
 (The MIT License)
 
-&copy; 2012-2013 Christopher Clarke, Stephen Clarke. See [LICENSE](https://github.com/Sevenview/votd/blob/master/LICENSE) for details.
+&copy; 2012-2014 Christopher Clarke, Stephen Clarke. See [LICENSE](https://github.com/Sevenview/votd/blob/master/LICENSE) for details.
