@@ -5,38 +5,38 @@ describe "Votd::Base" do
 
   describe ".text" do
     it "returns the default scripture verse" do
-      expect(votd.text).to eq("For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.")
+      expect(votd.text).to eq "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."
     end
   end
 
   describe ".reference" do
     it "returns the default scripture reference" do
-      votd.reference.should == "John 3:16"
+      expect(votd.reference).to eq "John 3:16"
     end
   end
 
   describe ".version / .translation" do
     it "returns the default bible version" do
-      votd.translation.should == "KJV"
-      votd.version.should     == "KJV"
+      expect(votd.translation).to eq "KJV"
+      expect(votd.version).to eq "KJV"
     end
   end
 
   describe ".date" do
     it "returns the default date" do
-      votd.date.should == Date.today
+      expect(votd.date).to eq Date.today
     end
   end
 
   describe ".copyright" do
     it "returns nil copyright information" do
-      votd.copyright.should be_nil
+      expect(votd.copyright).to be_nil
     end
   end
 
   describe ".to_html" do
     it "returns a HTML version" do
-      votd.to_html.should == read_fixture("base/base.html")
+      expect(votd.to_html).to eq read_fixture("base/base.html")
     end
   end
 
@@ -46,8 +46,8 @@ describe "Votd::Base" do
         "<p>#{votd.reference}|#{votd.text}|#{votd.version}</p>"
       end
       desired_output = read_fixture("base/base_custom.html")
-      html_from_block.should == desired_output
-      votd.to_html.should    == desired_output
+      expect(html_from_block).to eq desired_output
+      expect(votd.to_html).to eq desired_output
     end
 
     it "generates a VotdError when not used with a block" do
@@ -57,11 +57,11 @@ describe "Votd::Base" do
 
   describe ".to_text" do
     it "returns a text-formatted version" do
-      votd.to_text.should == read_fixture("base/base.txt")
+      expect(votd.to_text).to eq read_fixture("base/base.txt")
     end
 
     it "is aliased to .to_s" do
-      votd.to_s.should == read_fixture("base/base.txt")
+      expect(votd.to_s).to eq read_fixture("base/base.txt")
     end
   end
 
@@ -71,8 +71,8 @@ describe "Votd::Base" do
         "#{votd.reference}|#{votd.text}|#{votd.version}"
       end
       desired_output = read_fixture("base/base_custom.txt")
-      text_from_block.should == desired_output
-      votd.to_text.should    == desired_output
+      expect(text_from_block).to eq desired_output
+      expect(votd.to_text).to eq desired_output
     end
 
     it "generates a VotdError when not used with a block" do
