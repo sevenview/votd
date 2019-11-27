@@ -10,12 +10,11 @@ module Votd
   # docs: http://www.biblegateway.com/usage/votd/docs/
   #
   # version list: http://www.biblegateway.com/usage/linking/versionslist.php
-  #
-  # Note: These are the English translations that are supported for Bible
-  #       Bible Gateway VotD as of November 2019. Many are copyright blocked.
-  #
+
   class BibleGateway < Votd::Base
-    BIBLE_VERSIONS = {
+  # These are the English translations that are copyright-approved for Bible
+  # Gateway VotD as of November 2019.
+  BIBLE_VERSIONS = {
       amp:      { name: 'Amplified Bible',                     id: 45 },
       asv:      { name: 'American Standard Version',           id: 8 },
       ceb:      { name: 'Common English Bible',                id: 105 },

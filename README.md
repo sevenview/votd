@@ -9,13 +9,9 @@ daily Bible Verses.
 
 Currently the gem supports three VotD web services:
 
+* [Bible Gateway](http://www.biblegateway.com) - Multiple Translations
 * [Bible.org](http://labs.bible.org) - NETBible Translation
-* [Bible Gateway](http://www.biblegateway.com) - NIV Translations (Currently only supporting the default NIV, but planning on adding more.)
 * [ESV Bible Web Service](http://www.esvapi.org/) - ESV Translation
-
-Other services are are planned:
-
-* [Bible Gateway](http://www.biblegateway.com) - More Translations 
 
 If you are able to contribute modules for any of these, please see our [CONTRIBUTING](https://github.com/Sevenview/votd/blob/master/CONTRIBUTING.md) file. Let us know before you begin work in case someone else has a module in-progress.
 
@@ -33,24 +29,85 @@ Or install it yourself as:
 
     $ gem install votd
 
-## Usage
+## Quick Start
 
 To use VotD in your code:
 
     require 'votd'
+
+    votd = Votd::BibleGateway.new
     
-    votd = Votd::NetBible.new
-    
-    # or votd = Votd::BibleGateway.new
-    
-    votd.reference   # Ephesians 2:8-9
-    votd.text        # For by grace you are saved through faith...
-    votd.date        # 2012-03-24
-    votd.version     # NIV
-    votd.copyright   # Copyright © ...
+    votd.reference    # Ephesians 2:8-9
+    votd.text         # For by grace you are saved through faith...
+    votd.date         # 2012-03-24
+    votd.version      # NIV
+    votd.version_name # New International Version
+    votd.link         # https://www.biblegateway.com/passage/?search=ephesians+2%3A8-9&version=31
+    votd.copyright    # Copyright © ...
     
 *NOTE: If there's an error encountered while accessing the VotD service a default verse of John 3:16 in the KVJ
 is returned. This ensures that something is returned no matter what.*
+
+## Votd::BibleGateway
+
+To use the Bible Gateway service, which generates a verse of the day in multiple
+translations:
+
+```ruby
+    require 'votd'
+    votd = Votd::NetBible.new        # uses default New International Version
+    # or
+    votd = Votd::NetBible.new(:kjv)  # uses King James Version (see chart below for more)
+```
+
+The following English translations are available:
+
+| Code | Version|  Name |
+| -----|------|---|
+| :amp  | AMP | Amplified Bible |
+| :asv  | ASV | American Standard Version |
+| :ceb | CEB | Common English Bible |
+| :darby | DARBY | Darby Translation |
+| :esv | ESV | English Standard Version |
+| :esvu | ESVU | English Standard Version Anglicised |
+| :gw | GW | God's Word Translation |
+| :hcsb | HCSB | Holman Christian Standard Bible |
+| :kjv | KJV | King James Version |
+| :leb | LEB | Lexham English Bible |
+| :nasb | NASB | New American Standard Bible |
+| :nirv | NIRV | New International Reader's Version |
+| :niv | NIV | New International Version |
+| :nivuk | NIVUK | New International Version - UK |
+| :nlt | NLT | New Living Translation |
+| :nlv | NLV | New Life Version |
+| :phillips | PHILLIPS | J.B. Phillips New Testament |
+| :we | WE | Worldwide English (New Testament) |
+| :wyc | WYC | Wycliffe Bible |
+| :ylt | YLT | Young's Literal Translation |
+
+Note: Although Bible Gateway has many other English translations, these are the
+only ones that have copyright approval for use with the verse of the day
+service as of November 2019.
+
+## Votd::NetBible
+
+To use the NET Bible service, which generates a NET Bible translation verse of
+the day:
+
+```ruby
+    require 'votd'
+    votd = Votd::NetBible.new
+```
+
+## Votd::ESVBible
+
+To use the ESV Bible Web Service, which generates a English Standard Version 
+verse of the day:
+
+```ruby
+    require 'votd'
+    votd = Votd::BibleGateway.new
+```
 
 ### Outputting HTML
 
@@ -151,4 +208,4 @@ Stephen Clarke <steve@sevenview.ca>
 
 (The MIT License)
 
-&copy; 2012-2014 Christopher Clarke, Stephen Clarke. See [LICENSE](https://github.com/Sevenview/votd/blob/master/LICENSE) for details.
+&copy; 2012-2019 Christopher Clarke, Stephen Clarke. See [LICENSE](https://github.com/Sevenview/votd/blob/master/LICENSE) for details.
