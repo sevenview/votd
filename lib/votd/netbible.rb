@@ -5,7 +5,8 @@ module Votd
   # translation.
   class NetBible < Votd::Base
     # The name of the Bible Translation that this module generates
-    BIBLE_VERSION = "NETBible"
+    BIBLE_VERSION = 'NETBible'
+    BIBLE_VERSION_NAME = 'NET Bible'
 
     # The URI of the API gateway
     URI = "http://labs.bible.org/api/?passage=votd&type=json"
@@ -46,6 +47,7 @@ module Votd
       @text = text
 
       @version = BIBLE_VERSION
+      @version_name = BIBLE_VERSION_NAME
 
     rescue => e
       # use default info for VotD

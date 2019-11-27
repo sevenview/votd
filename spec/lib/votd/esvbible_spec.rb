@@ -30,6 +30,13 @@ describe "Votd::ESVBible" do
     end
   end
 
+  describe ".version_name / .translation_name" do
+    it "returns the correct bible version" do
+      expect(votd.version_name).to eq "English Standard Version"
+      expect(votd.translation_name).to eq "English Standard Version"
+    end
+  end
+
   describe ".date" do
     it "returns the correct date" do
       expect(votd.date).to eq Date.today

@@ -5,26 +5,52 @@ module Votd
   # Retrieves a Verse of the Day from biblegateway.com using a variety
   # of translations.
   #
+  # Default translation is NIV (New International Version)
+  #
   # docs: http://www.biblegateway.com/usage/votd/docs/
   #
   # version list: http://www.biblegateway.com/usage/linking/versionslist.php
   #
-  # @todo Extend this to allow requesting any of the supported Bible translations that
-  #       Bible Gateway supports for VotD
+  # Note: These are the English translations that are supported for Bible
+  #       Bible Gateway VotD as of November 2019. Many are copyright blocked.
   #
   class BibleGateway < Votd::Base
-    # The name of the Bible Translation that this module generates
-    BIBLE_VERSION = "NIV"
+    BIBLE_VERSIONS = {
+      amp:      { name: 'Amplified Bible',                     id: 45 },
+      asv:      { name: 'American Standard Version',           id: 8 },
+      ceb:      { name: 'Common English Bible',                id: 105 },
+      darby:    { name: 'Darby Translation',                   id: 16 },
+      esv:      { name: 'English Standard Version',            id: 47 },
+      esvu:     { name: 'English Standard Version Anglicised', id: 166 },
+      gw:       { name: "God's Word Translation",              id: 158 },
+      hcsb:     { name: 'Holman Christian Standard Bible',     id: 77 },
+      kjv:      { name: 'King James Version',                  id: 9 },
+      leb:      { name: 'Lexham English Bible',                id: 165 },
+      nasb:     { name: 'New American Standard Bible',         id: 49 },
+      nirv:     { name: "New International Reader's Version",  id: 76 },
+      niv:      { name: 'New International Version',           id: 31 },
+      nivuk:    { name: 'New International Version - UK',      id: 64 },
+      nlt:      { name: 'New Living Translation',              id: 51 },
+      nlv:      { name: 'New Life Version',                    id: 74 },
+      phillips: { name: 'J.B. Phillips New Testament',         id: 164 },
+      we:       { name: 'Worldwide English (New Testament)',   id: 73 },
+      wyc:      { name: 'Wycliffe Bible',                      id: 53 },
+      ylt:      { name: "Young's Literal Translation",         id: 15 }
+    }
 
     # The URI of the API gateway
     URI = "http://www.biblegateway.com/usage/votd/rss/votd.rdf?"
 
+    # Regular expression for pulling the copyright out of the Bible text
+    COPYRIGHT_TEXT_REGEX =  /(Brought to you by BibleGateway.*$)/
+
     # Initializes the BibleGateway class
     # @return [BibleGateway]
-    def initialize
-      # Regular expression for pulling the copyright out of the Bible text
-      @regex_copyright_text = /(Brought to you by BibleGateway.*$)/
-      super
+    def initialize(version = :niv)
+      @version = version.to_s.upcase
+      @version_number = BIBLE_VERSIONS[version][:id]
+      @version_name = BIBLE_VERSIONS[version][:name]
+      super()
     end
 
     private
@@ -32,17 +58,18 @@ module Votd
     # Gets the votd from the Bible Gateway RSS feed
     # @return [String]
     def get_votd
-      feed         = Feedjira.parse(HTTParty.get(URI).body)
+      uri          = "#{URI}#{@version_number}"
+      feed         = Feedjira.parse(HTTParty.get(uri).body)
       entry        = feed.entries.first
       cleaned_text = clean_text(entry.content)
 
       @reference   = entry.title
       @text        = cleaned_text
       @copyright   = get_copyright(entry.content)
-      @version     = BIBLE_VERSION
     rescue => e
       # use default info for VotD
       set_defaults
+      #raise e
       # @todo Add logging
     end
 
@@ -66,7 +93,7 @@ module Votd
     def get_copyright(text)
       text = strip_html_quote_entities(text)
       text = Helper::Text.strip_html_tags(text)
-      text.match(@regex_copyright_text)[1]
+      text.match(COPYRIGHT_TEXT_REGEX)[1]
     end
 
     # Removes HTML quote entities added by BibleGateway
@@ -78,7 +105,7 @@ module Votd
     # Removes copyright text from the Bible text
     # @return [String]
     def strip_copyright_text(text)
-      text.gsub(@regex_copyright_text, '')
+      text.gsub(COPYRIGHT_TEXT_REGEX, '')
     end
   end
 end

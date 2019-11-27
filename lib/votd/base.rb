@@ -25,9 +25,15 @@ module Votd
 
     # @example
     #   votd.version  # "NIV"
-    # @return [String] the bible translation used for this VotD
+    # @return [String] the bible translation acronym used for this VotD
     attr_reader :version
     alias_method :translation, :version
+
+    # @example
+    #   votd.version_name  # "New International Version"
+    # @return [String] the bible translation name used for this VotD
+    attr_reader :version_name
+    alias_method :translation_name, :version_name
 
     # @example
     #   votd.copyright # "Brought to you by BibleGateway.com. Copyright (C) . All Rights Reserved."

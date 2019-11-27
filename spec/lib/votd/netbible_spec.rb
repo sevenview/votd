@@ -36,6 +36,13 @@ describe "Votd::NETBible" do
     end
   end
 
+  describe ".version_name / .translation_name" do
+    it "returns the correct bible version" do
+      expect(votd.version_name).to     eq "NET Bible"
+      expect(votd.translation_name).to eq "NET Bible"
+    end
+  end
+
   describe ".date" do
     it "returns the correct date" do
       expect(votd.date).to eq Date.today

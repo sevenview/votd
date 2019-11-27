@@ -1,6 +1,15 @@
 Changelog
 =========
 
+3.0.0
+-----
+*November 27, 2019*
+
+* Choose a Bible version from Bible Gateway. Default is still NIV. (see docs
+  for supported versions)
+* Add `.version_name` (alias: `.translation_name`) to get full version name.
+  (e.g. "New International Version")
+
 2.2.0
 -----
 *October 31, 2013*

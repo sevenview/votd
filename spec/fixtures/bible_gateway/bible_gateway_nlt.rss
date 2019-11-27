@@ -1,3 +1,4 @@
+
 <?xml version="1.0" ?>
 <rss version="2.0"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -9,25 +10,25 @@
 
     <channel>
         <title>Bible Gateway's Verse of the Day</title>
-        <link>http://www.biblegateway.com</link>
+        <link>https://www.biblegateway.com</link>
         <description>A daily word of exultation.</description>
         <dc:language>en-us</dc:language>
         <dc:creator>BibleGateway.com</dc:creator>
         <dc:rights>Copyright 2004</dc:rights>
-        <dc:date>2012-03-25T12:00:00Z</dc:date>
+        <dc:date>2019-11-27T12:00:00Z</dc:date>
         <sy:updatePeriod>daily</sy:updatePeriod>
         <sy:updateFrequency>1</sy:updateFrequency>
         <sy:updateBase>2000-01-01T12:00+00:00</sy:updateBase>
 
         <item>
-            <title>1 John 1:9</title>
+            <title>Colossians 3:16</title>
             <description>Verse of the day</description>
-            <guid isPermaLink="false">http://www.biblegateway.com/passage/?search=1+John+1%3A9&amp;version=NIV</guid>
+            <guid isPermaLink="false">https://www.biblegateway.com/passage/?search=Colossians+3%3A16&amp;version=51</guid>
             <content:encoded>
-                <![CDATA[&ldquo;If we confess our sins, he is faithful and just and will forgive us our sins and purify us from all unrighteousness.&rdquo;<br/><br/> Brought to you by <a href="http://www.biblegateway.com">BibleGateway.com</a>. Copyright (C) . All Rights Reserved.]]>
+                <![CDATA[&ldquo;Let the message about Christ, in all its richness, fill your lives. Teach and counsel each other with all the wisdom he gives. Sing psalms and hymns and spiritual songs to God with thankful hearts.&rdquo;<br/><br/> Brought to you by <a href="https://www.biblegateway.com">BibleGateway.com</a>. Copyright (C) NLT. All Rights Reserved.]]>
             </content:encoded>
             <dc:rights>Powered by BibleGateway.com</dc:rights>
-            <dc:date>2012-03-25T12:00:00Z</dc:date>
+            <dc:date>2019-11-27T12:00:00Z</dc:date>
         </item>
     </channel>
-</rss>
+ </rss>
