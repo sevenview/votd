@@ -5,7 +5,7 @@ describe "Votd::Base" do
 
   describe ".text" do
     it "returns the default scripture verse" do
-      votd.text.should == "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."
+      expect(votd.text).to eq("For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.")
     end
   end
 

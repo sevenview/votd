@@ -1,4 +1,4 @@
-require 'feedzirra'
+require 'feedjira'
 require 'votd/helper/text'
 
 module Votd
@@ -32,7 +32,7 @@ module Votd
     # Gets the votd from the Bible Gateway RSS feed
     # @return [String]
     def get_votd
-      feed         = Feedzirra::Feed.parse(HTTParty.get(URI).body)
+      feed         = Feedjira.parse(HTTParty.get(URI).body)
       entry        = feed.entries.first
       cleaned_text = clean_text(entry.content)
 

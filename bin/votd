@@ -10,6 +10,7 @@ include Votd::Helper::CommandLine
 
 votd = Votd::BibleGateway.new
 #votd = Votd::NetBible.new
+#votd = Votd::ESVBible.new
 #votd = Votd::Base.new
 
 LINE_WIDTH = 40
