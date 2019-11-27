@@ -64,6 +64,7 @@ module Votd
       cleaned_text = clean_text(entry.content)
 
       @reference   = entry.title
+      @link        = entry.entry_id
       @text        = cleaned_text
       @copyright   = get_copyright(entry.content)
     rescue => e

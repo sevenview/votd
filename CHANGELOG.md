@@ -9,6 +9,7 @@ Changelog
   for supported versions)
 * Add `.version_name` (alias: `.translation_name`) to get full version name.
   (e.g. "New International Version")
+* Add `.link` to get a link to the verse on the associated Bible site.
 
 2.2.0
 -----

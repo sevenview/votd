@@ -49,6 +49,12 @@ describe "Votd::ESVBible" do
     end
   end
 
+  describe ".link" do
+    it 'returns the link' do
+      expect(votd.link).to eq 'http://www.gnpcb.org/esv/search/?passage=Romans+8%3A15&date=20131029'
+    end
+  end
+
   describe ".to_html" do
     it "returns a HTML version" do
       expect(votd.to_html).to eq read_fixture("esvbible/esvbible.html")

@@ -40,6 +40,12 @@ module Votd
     # @return [String] any copyright information supplied by VotD provider
     attr_reader :copyright
 
+    # @example
+    #   votd.link  # "https://www.biblegateway.com/passage/?search=Colossians+3%3A16&version=NIV"
+    #
+    # @return [String] A URL link to the verse on the corresponding Bible service.
+    attr_reader :link
+
     # The default Bible text to use. This is used in case of an error
     # retrieving the VotD from a remote server
     DEFAULT_BIBLE_TEXT = "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."
@@ -52,6 +58,12 @@ module Votd
     # is provided
     DEFAULT_BIBLE_VERSION = "KJV"
 
+    # The default Bible version name to use if none is given and no other default
+    # is provided
+    DEFAULT_BIBLE_VERSION_NAME = "King James Version"
+
+    DEFAULT_LINK = "https://www.biblegateway.com/passage/?search=John+3%3A16&version=KJV"
+
     # Initializes the class and retrieves the verse of the day.
     # @return [Base]
     def initialize
@@ -61,6 +73,7 @@ module Votd
       @date        = Date.today
       @custom_html = nil
       @custom_text = nil
+      @link        = nil
       get_votd
     end
 
@@ -154,10 +167,12 @@ module Votd
     end
 
     def set_defaults
-      @text      = DEFAULT_BIBLE_TEXT
-      @reference = DEFAULT_BIBLE_REFERENCE
-      @version   = DEFAULT_BIBLE_VERSION
-      @copyright = nil
+      @text         = DEFAULT_BIBLE_TEXT
+      @reference    = DEFAULT_BIBLE_REFERENCE
+      @version      = DEFAULT_BIBLE_VERSION
+      @version_name = DEFAULT_BIBLE_VERSION_NAME
+      @link         = DEFAULT_LINK
+      @copyright    = nil
     end
 
   end

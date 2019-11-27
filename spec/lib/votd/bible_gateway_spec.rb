@@ -53,6 +53,12 @@ describe "Votd::BibleGateway" do
       end
     end
 
+    describe ".link" do
+      it 'returns the link' do
+        expect(votd.link).to eq 'http://www.biblegateway.com/passage/?search=1+John+1%3A9&version=NIV'
+      end
+    end
+
     describe ".to_html" do
       it "returns a HTML version" do
         expect(votd.to_html).to eq read_fixture("bible_gateway/bible_gateway.html")
@@ -141,6 +147,10 @@ describe "Votd::BibleGateway" do
 
       it "returns copyright information" do
         expect(votd_nlt.copyright).to eq "Brought to you by BibleGateway.com. Copyright (C) NLT. All Rights Reserved."
+      end
+
+      it 'returns the link' do
+        expect(votd_nlt.link).to eq 'https://www.biblegateway.com/passage/?search=Colossians+3%3A16&version=51'
       end
     end
   end

@@ -22,6 +22,19 @@ describe "Votd::Base" do
     end
   end
 
+  describe ".version_name / .translation_name" do
+    it "returns the default bible version" do
+      expect(votd.translation_name).to eq "King James Version"
+      expect(votd.version_name).to eq "King James Version"
+    end
+  end
+
+  describe ".link" do
+    it 'returns the default link' do
+      expect(votd.link).to eq 'https://www.biblegateway.com/passage/?search=John+3%3A16&version=KJV'
+    end
+  end
+
   describe ".date" do
     it "returns the default date" do
       expect(votd.date).to eq Date.today

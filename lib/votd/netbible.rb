@@ -11,6 +11,9 @@ module Votd
     # The URI of the API gateway
     URI = "http://labs.bible.org/api/?passage=votd&type=json"
 
+    # The URI of the website to view the verse (used in ``.link``)
+    NET_BIBLE_URI = "https://netbible.org/bible"
+
     # Initializes the NetBible class
     # @return [Votd::NetBible]
     def initialize
@@ -49,10 +52,16 @@ module Votd
       @version = BIBLE_VERSION
       @version_name = BIBLE_VERSION_NAME
 
+      @link = generate_link(bookname, chapter, verse_numbers.first)
+
     rescue => e
       # use default info for VotD
       set_defaults
       # @todo Add logging
+    end
+
+    def generate_link(bookname, chapter, verse_number)
+      "#{NET_BIBLE_URI}/#{bookname}+#{chapter}:#{verse_number}"
     end
   end
 end

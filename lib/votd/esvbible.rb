@@ -15,7 +15,7 @@ module Votd
     # Initializes the ESVBible class
     # @return [Votd::ESVBible]
     def initialize
-      super
+      super()
     end
 
     private
@@ -30,6 +30,7 @@ module Votd
       @reference = parsed_feed.xpath("//title")[1].text
       @text      = parsed_feed.xpath("//description")[1].text
       @copyright = cleaned_copyright
+      @link      = parsed_feed.xpath("//guid").text
       @version   = BIBLE_VERSION
       @version_name = BIBLE_VERSION_NAME
 
