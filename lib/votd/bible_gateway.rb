@@ -46,6 +46,8 @@ module Votd
     # Initializes the BibleGateway class
     # @return [BibleGateway]
     def initialize(version = :niv)
+      raise InvalidBibleVersion unless BIBLE_VERSIONS.has_key?(version)
+
       @version = version.to_s.upcase
       @version_number = BIBLE_VERSIONS[version][:id]
       @version_name = BIBLE_VERSIONS[version][:name]

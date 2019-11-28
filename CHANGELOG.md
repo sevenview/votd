@@ -1,6 +1,12 @@
 Changelog
 =========
 
+3.0.1
+-----
+*November 27, 2019*
+
+* Throw error when invalid version option passed to BibleGateway initializer
+
 3.0.0
 -----
 *November 27, 2019*
@@ -9,7 +15,7 @@ Changelog
   for supported versions)
 * Add `.version_name` (alias: `.translation_name`) to get full version name.
   (e.g. "New International Version")
-* Add `.link` to get a link to the verse on the associated Bible site.
+* Add `.link` to get a link to the verse on the associated Bible site
 
 2.2.0
 -----

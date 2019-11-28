@@ -135,22 +135,26 @@ describe "Votd::BibleGateway" do
       fake_a_uri("#{Votd::BibleGateway::URI}#{51}", 'bible_gateway/bible_gateway_nlt.rss')
     end
 
-    describe ".text" do
-      it "returns the correct scripture verse" do
-        expect(votd_nlt.text).to eq "Let the message about Christ, in all its richness, fill your lives. Teach and counsel each other with all the wisdom he gives. Sing psalms and hymns and spiritual songs to God with thankful hearts."
-      end
+    it "returns the correct scripture verse" do
+      expect(votd_nlt.text).to eq "Let the message about Christ, in all its richness, fill your lives. Teach and counsel each other with all the wisdom he gives. Sing psalms and hymns and spiritual songs to God with thankful hearts."
+    end
 
-      it 'returns the correct version info' do
-        expect(votd_nlt.version).to eq 'NLT'
-        expect(votd_nlt.version_name).to eq 'New Living Translation'
-      end
+    it 'returns the correct version info' do
+      expect(votd_nlt.version).to eq 'NLT'
+      expect(votd_nlt.version_name).to eq 'New Living Translation'
+    end
 
-      it "returns copyright information" do
-        expect(votd_nlt.copyright).to eq "Brought to you by BibleGateway.com. Copyright (C) NLT. All Rights Reserved."
-      end
+    it "returns copyright information" do
+      expect(votd_nlt.copyright).to eq "Brought to you by BibleGateway.com. Copyright (C) NLT. All Rights Reserved."
+    end
 
-      it 'returns the link' do
-        expect(votd_nlt.link).to eq 'https://www.biblegateway.com/passage/?search=Colossians+3%3A16&version=51'
+    it 'returns the link' do
+      expect(votd_nlt.link).to eq 'https://www.biblegateway.com/passage/?search=Colossians+3%3A16&version=51'
+    end
+
+    context 'with an invalid version code' do
+      it 'throws an error' do
+        expect{ Votd::BibleGateway.new(:foo) }.to raise_error(Votd::InvalidBibleVersion)
       end
     end
   end

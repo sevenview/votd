@@ -3,4 +3,7 @@ module Votd
   # by Votd.
   class VotdError < StandardError
   end
+
+  class InvalidBibleVersion < VotdError
+  end
 end
