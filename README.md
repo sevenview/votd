@@ -55,9 +55,9 @@ translations:
 
 ```ruby
     require 'votd'
-    votd = Votd::NetBible.new        # uses default New International Version
+    votd = Votd::BibleGateway.new        # uses default New International Version
     # or
-    votd = Votd::NetBible.new(:kjv)  # uses King James Version (see chart below for more)
+    votd = Votd::BibleGateway.new(:kjv)  # uses King James Version (see chart below for more)
 ```
 
 The following English translations are available:
