@@ -1,25 +1,9 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-# allow this to run from development environment
-$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), "..", "lib")
 
-require 'votd'
-require 'votd/helper/command_line'
+require "votd"
+require "votd/cli"
 
-include Votd::Helper::CommandLine
-
-votd = Votd::BibleGateway.new
-#votd = Votd::NetBible.new
-#votd = Votd::ESVBible.new
-#votd = Votd::Base.new
-
-LINE_WIDTH = 40
-
-banner("VERSE OF THE DAY for #{votd.date.to_s}", LINE_WIDTH) { }
-puts "\n"
-puts word_wrap(votd.to_text, LINE_WIDTH)
-
-if votd.copyright
-  puts "\n"
-  puts banner(word_wrap(votd.copyright, LINE_WIDTH), LINE_WIDTH)
-end
+Votd::CLI.start(ARGV)

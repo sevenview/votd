@@ -8,6 +8,9 @@ Changelog
 * Upgrade Ruby from 2.6.5 (EOL) to 3.4.1; require >= 3.3
 * Fix BibleGateway and NetBible API endpoints (http → https)
 * Add `Votd::OurManna` provider — free, no-auth JSON API from ourmanna.com (NIV)
+* **Breaking:** Replace stub CLI with Thor-based CLI. The `votd` command now
+  requires a subcommand: `votd verse` (with `--provider`, `--translation`,
+  `--format` options), `votd version`, `votd help`.
 * Deprecate `Votd::ESVBible` — the gnpcb.org endpoint has been shut down.
   `ESVBible.new` now raises `Votd::VotdError` with a message directing users
   to `Votd::BibleGateway.new(:esv)` as a replacement.
