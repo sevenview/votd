@@ -1,6 +1,16 @@
 Changelog
 =========
 
+4.0.0
+-----
+*March 4, 2026*
+
+* Upgrade Ruby from 2.6.5 (EOL) to 3.4.1; require >= 3.1
+* Fix BibleGateway and NetBible API endpoints (http → https)
+* Deprecate `Votd::ESVBible` — the gnpcb.org endpoint has been shut down.
+  `ESVBible.new` now raises `Votd::VotdError` with a message directing users
+  to `Votd::BibleGateway.new(:esv)` as a replacement.
+
 3.0.1
 -----
 *November 27, 2019*
