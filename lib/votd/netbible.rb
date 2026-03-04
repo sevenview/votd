@@ -9,7 +9,7 @@ module Votd
     BIBLE_VERSION_NAME = 'NET Bible'
 
     # The URI of the API gateway
-    URI = "http://labs.bible.org/api/?passage=votd&type=json"
+    URI = "https://labs.bible.org/api/?passage=votd&type=json"
 
     # The URI of the website to view the verse (used in ``.link``)
     NET_BIBLE_URI = "https://netbible.org/bible"

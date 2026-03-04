@@ -38,7 +38,7 @@ module Votd
     }
 
     # The URI of the API gateway
-    URI = "http://www.biblegateway.com/usage/votd/rss/votd.rdf?"
+    URI = "https://www.biblegateway.com/usage/votd/rss/votd.rdf?"
 
     # Regular expression for pulling the copyright out of the Bible text
     COPYRIGHT_TEXT_REGEX =  /(Brought to you by BibleGateway.*$)/
