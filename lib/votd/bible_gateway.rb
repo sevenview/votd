@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 require 'feedjira'
-require 'votd/helper/text'
 
 module Votd
   # Retrieves a Verse of the Day from biblegateway.com using a variety
@@ -7,9 +8,9 @@ module Votd
   #
   # Default translation is NIV (New International Version)
   #
-  # docs: http://www.biblegateway.com/usage/votd/docs/
+  # docs: https://www.biblegateway.com/usage/votd/docs/
   #
-  # version list: http://www.biblegateway.com/usage/linking/versionslist.php
+  # version list: https://www.biblegateway.com/usage/linking/versionslist.php
 
   class BibleGateway < Votd::Base
   # These are the English translations that are copyright-approved for Bible
@@ -37,16 +38,16 @@ module Votd
       ylt:      { name: "Young's Literal Translation",         id: 15 }
     }
 
-    # The URI of the API gateway
-    URI = "https://www.biblegateway.com/usage/votd/rss/votd.rdf?"
+    # The URL of the API gateway
+    ENDPOINT_URL = 'https://www.biblegateway.com/usage/votd/rss/votd.rdf?'
 
     # Regular expression for pulling the copyright out of the Bible text
-    COPYRIGHT_TEXT_REGEX =  /(Brought to you by BibleGateway.*$)/
+    COPYRIGHT_TEXT_REGEX = /(Brought to you by BibleGateway.*$)/
 
     # Initializes the BibleGateway class
     # @return [BibleGateway]
     def initialize(version = :niv)
-      raise InvalidBibleVersion unless BIBLE_VERSIONS.has_key?(version)
+      raise InvalidBibleVersion unless BIBLE_VERSIONS.key?(version)
 
       @version = version.to_s.upcase
       @version_number = BIBLE_VERSIONS[version][:id]
@@ -59,8 +60,8 @@ module Votd
     # Gets the votd from the Bible Gateway RSS feed
     # @return [String]
     def get_votd
-      uri          = "#{URI}#{@version_number}"
-      feed         = Feedjira.parse(HTTParty.get(uri).body)
+      url          = "#{ENDPOINT_URL}#{@version_number}"
+      feed         = Feedjira.parse(HTTParty.get(url).body)
       entry        = feed.entries.first
       cleaned_text = clean_text(entry.content)
 
@@ -71,8 +72,6 @@ module Votd
     rescue => e
       # use default info for VotD
       set_defaults
-      #raise e
-      # @todo Add logging
     end
 
     # Cleans up the text. Removes:
@@ -85,17 +84,18 @@ module Votd
       text = strip_html_quote_entities(text)
       text = Helper::Text.strip_html_tags(text)
       text = strip_copyright_text(text)
-      text.strip!
+      text = text.strip
       text = Helper::Text.clean_verse_start(text)
-      text = Helper::Text.clean_verse_end(text)
+      Helper::Text.clean_verse_end(text)
     end
 
     # Extracts copyright tag from the Bible text
-    # @return [String]
+    # @return [String, nil]
     def get_copyright(text)
       text = strip_html_quote_entities(text)
       text = Helper::Text.strip_html_tags(text)
-      text.match(COPYRIGHT_TEXT_REGEX)[1]
+      match = text.match(COPYRIGHT_TEXT_REGEX)
+      match ? match[1] : nil
     end
 
     # Removes HTML quote entities added by BibleGateway

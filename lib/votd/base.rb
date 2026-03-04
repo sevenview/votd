@@ -1,4 +1,4 @@
-require 'votd/helper/text'
+# frozen_string_literal: true
 
 module Votd
   # This is the base class that all Votd lookup modules inherit from.
@@ -48,27 +48,27 @@ module Votd
 
     # The default Bible text to use. This is used in case of an error
     # retrieving the VotD from a remote server
-    DEFAULT_BIBLE_TEXT = "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."
+    DEFAULT_BIBLE_TEXT = 'For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.'
 
     # The default Bible reference to use. This is used in case of an error
     # retrieving the VotD from a remote server
-    DEFAULT_BIBLE_REFERENCE = "John 3:16"
+    DEFAULT_BIBLE_REFERENCE = 'John 3:16'
 
     # The default Bible version to use if none is given and no other default
     # is provided
-    DEFAULT_BIBLE_VERSION = "KJV"
+    DEFAULT_BIBLE_VERSION = 'KJV'
 
     # The default Bible version name to use if none is given and no other default
     # is provided
-    DEFAULT_BIBLE_VERSION_NAME = "King James Version"
+    DEFAULT_BIBLE_VERSION_NAME = 'King James Version'
 
-    DEFAULT_LINK = "https://www.biblegateway.com/passage/?search=John+3%3A16&version=KJV"
+    DEFAULT_LINK = 'https://www.biblegateway.com/passage/?search=John+3%3A16&version=KJV'
 
     # Initializes the class and retrieves the verse of the day.
     # @return [Base]
     def initialize
-      @text        = ""
-      @reference   = ""
+      @text        = ''
+      @reference   = ''
       @copyright   = nil
       @date        = Date.today
       @custom_html = nil
@@ -90,11 +90,14 @@ module Votd
     #
     # @return [String] the VotD formatted as HTML
     def to_html
-      default_html =  "<p class=\"votd-text\">#{@text}</p>\n"
-      default_html << "<p>\n"
-      default_html << "<span class=\"votd-reference\"><strong>#{@reference}</strong></span>\n"
-      default_html << "<span class=\"votd-version\"><em>(#{@version})</em></span>\n"
-      default_html << "</p>\n"
+      default_html = [
+        %(<p class="votd-text">#{@text}</p>),
+        '<p>',
+        %(<span class="votd-reference"><strong>#{@reference}</strong></span>),
+        %(<span class="votd-version"><em>(#{@version})</em></span>),
+        '</p>',
+        ''
+      ].join("\n")
       @custom_html ||= default_html
     end
 
@@ -119,7 +122,7 @@ module Votd
       if block_given?
         @custom_html = yield(self)
       else
-        raise Votd::VotdError, "You must use a block with this method"
+        raise Votd::VotdError, 'You must use a block with this method'
       end
     end
 
@@ -154,11 +157,12 @@ module Votd
       if block_given?
         @custom_text = yield(self)
       else
-        raise Votd::VotdError, "You must use a block with this method"
+        raise Votd::VotdError, 'You must use a block with this method'
       end
     end
 
     protected
+
     # Gets the VotD. For {Votd::Base} this will return default values and can be
     # used in the event of an exception thrown when getting data from live web
     # services in subclasses of {Votd::Base}

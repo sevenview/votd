@@ -5,7 +5,7 @@ describe "Votd::NETBible" do
   let(:votd) { Votd::NetBible.new }
 
   before do
-    fake_a_uri(Votd::NetBible::URI, "netbible/netbible.json")
+    fake_a_uri(Votd::NetBible::ENDPOINT_URL, "netbible/netbible.json")
   end
 
   it "is a type of NETBible" do
@@ -18,7 +18,7 @@ describe "Votd::NETBible" do
     end
 
     it "contains no HTML tags" do
-      fake_a_uri(Votd::NetBible::URI, "netbible/netbible_with_html.json")
+      fake_a_uri(Votd::NetBible::ENDPOINT_URL, "netbible/netbible_with_html.json")
       expect(votd.text).to_not match /<\/?[^>]*>/
     end
   end
@@ -107,7 +107,7 @@ describe "Votd::NETBible" do
 
   context "When an error occurs" do
     before do
-      fake_a_broken_uri(Votd::NetBible::URI)
+      fake_a_broken_uri(Votd::NetBible::ENDPOINT_URL)
     end
 
     it "falls back to default VotD values" do
@@ -119,7 +119,7 @@ describe "Votd::NETBible" do
 
   context "When the text is not a proper sentence" do
     before do
-      fake_a_uri(Votd::NetBible::URI, "netbible/netbible_with_partial.json")
+      fake_a_uri(Votd::NetBible::ENDPOINT_URL, "netbible/netbible_with_partial.json")
     end
 
     it "prepends an ellipsis if first letter is not a capital letter" do

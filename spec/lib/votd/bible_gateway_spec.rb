@@ -4,7 +4,7 @@ describe "Votd::BibleGateway" do
   let(:votd) { Votd::BibleGateway.new }
   let(:votd_nlt) { Votd::BibleGateway.new(:nlt) }
 
-  let(:uri_regex) { /#{Votd::BibleGateway::URI}\d*/ }
+  let(:uri_regex) { /#{Votd::BibleGateway::ENDPOINT_URL}\d*/ }
 
   context 'With the default version' do
     before do
@@ -132,7 +132,7 @@ describe "Votd::BibleGateway" do
 
   context 'When specifying a version' do
     before do
-      fake_a_uri("#{Votd::BibleGateway::URI}#{51}", 'bible_gateway/bible_gateway_nlt.rss')
+      fake_a_uri("#{Votd::BibleGateway::ENDPOINT_URL}#{51}", 'bible_gateway/bible_gateway_nlt.rss')
     end
 
     it "returns the correct scripture verse" do

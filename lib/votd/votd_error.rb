@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Votd
   # Votd exception class. This will be thrown on errors returned
   # by Votd.
