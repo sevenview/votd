@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'votd'
+
+PASS = "\e[32mPASS\e[0m"
+FAIL = "\e[31mFAIL\e[0m"
+
+def test(name)
+  votd = yield
+  if votd.text == Votd::Base::DEFAULT_BIBLE_TEXT
+    puts "#{FAIL} #{name} — returned fallback verse (request likely failed)"
+  else
+    puts "#{PASS} #{name}"
+    puts "  reference : #{votd.reference}"
+    puts "  version   : #{votd.version}"
+    puts "  text      : #{votd.text[0..80]}..."
+    puts "  link      : #{votd.link}"
+  end
+rescue => e
+  puts "#{FAIL} #{name} — #{e.class}: #{e.message}"
+end
+
+puts "Running live smoke tests...\n\n"
+
+test("BibleGateway (NIV)")  { Votd::BibleGateway.new(:niv) }
+test("BibleGateway (KJV)")  { Votd::BibleGateway.new(:kjv) }
+test("NetBible")            { Votd::NetBible.new }
+
+begin
+  Votd::ESVBible.new
+  puts "#{FAIL} ESVBible — expected VotdError but none was raised"
+rescue Votd::VotdError => e
+  puts "#{PASS} ESVBible raises VotdError as expected"
+  puts "  message: #{e.message}"
+end
