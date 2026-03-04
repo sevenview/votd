@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.version       = Votd::VERSION
   gem.license       = "MIT"
 
-  gem.required_ruby_version = ">= 3.1"
+  gem.required_ruby_version = ">= 3.3"
 
   gem.add_runtime_dependency     "httparty"
   gem.add_runtime_dependency     "feedjira"
