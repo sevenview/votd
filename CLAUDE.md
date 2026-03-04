@@ -31,6 +31,7 @@ This is a Ruby gem (`votd`) that wraps Bible verse-of-the-day web services.
 - `Votd::Base` — abstract base class. Provides default fallback (John 3:16 KJV) when a service fails, and implements `to_html`, `to_text`, `custom_html`, `custom_text`. Subclasses override the private `get_votd` method.
 - `Votd::BibleGateway < Base` — fetches via RSS/Feedjira; accepts a version symbol (e.g. `:niv`, `:kjv`) from the `BIBLE_VERSIONS` hash.
 - `Votd::NetBible < Base` — fetches via JSON API from bible.org; NETBible translation only.
+- `Votd::OurManna < Base` — fetches via JSON API from ourmanna.com; NIV translation only.
 - `Votd::ESVBible` — **deprecated**. Raises `Votd::VotdError` on instantiation. The upstream gnpcb.org endpoint no longer exists. Direct users to `BibleGateway.new(:esv)`.
 
 **Error handling pattern:** Every `get_votd` implementation rescues all exceptions and calls `set_defaults` to return the fallback verse rather than raising. `Votd::InvalidBibleVersion` is the only error raised eagerly (in `BibleGateway#initialize` for unknown version symbols).

@@ -26,6 +26,7 @@ puts "Running live smoke tests...\n\n"
 test("BibleGateway (NIV)")  { Votd::BibleGateway.new(:niv) }
 test("BibleGateway (KJV)")  { Votd::BibleGateway.new(:kjv) }
 test("NetBible")            { Votd::NetBible.new }
+test("OurManna")            { Votd::OurManna.new }
 
 begin
   Votd::ESVBible.new

@@ -6,10 +6,11 @@ VotD (Verse of the Day) is a Ruby Gem that wraps various web services that gener
 daily Bible Verses.
 
 
-Currently the gem supports two VotD web services:
+Currently the gem supports three VotD web services:
 
 * [Bible Gateway](https://www.biblegateway.com) - Multiple Translations
 * [Bible.org](https://labs.bible.org) - NETBible Translation
+* [Our Manna](https://ourmanna.com) - NIV Translation
 
 If you are able to contribute modules for any of these, please see our [CONTRIBUTING](https://github.com/Sevenview/votd/blob/master/CONTRIBUTING.md) file. Let us know before you begin work in case someone else has a module in-progress.
 
@@ -95,6 +96,15 @@ the day:
 ```ruby
     require 'votd'
     votd = Votd::NetBible.new
+```
+
+## Votd::OurManna
+
+To use the Our Manna service, which generates an NIV verse of the day:
+
+```ruby
+    require 'votd'
+    votd = Votd::OurManna.new
 ```
 
 ## Votd::ESVBible
