@@ -165,7 +165,17 @@ This returns the custom formatted text, or you can call the `.to_text` method
 when ready, and your custom text will be output.
 
 ## Command Line
-For command-line usage see [here](https://github.com/Sevenview/votd/wiki/Shell-Tool)
+
+```bash
+votd verse                              # BibleGateway NIV (default)
+votd verse -p netbible                  # NetBible provider
+votd verse -p ourmanna                  # OurManna provider
+votd verse --translation kjv            # BibleGateway with KJV
+votd verse -f html                      # HTML output
+votd verse -f json                      # JSON output
+votd verse --help                       # Show options
+votd version                            # Show gem version
+```
 
 ## Documentation
 
