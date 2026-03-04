@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe "Votd::Base" do
   let(:votd) { Votd::Base.new }
@@ -30,8 +30,8 @@ describe "Votd::Base" do
   end
 
   describe ".link" do
-    it 'returns the default link' do
-      expect(votd.link).to eq 'https://www.biblegateway.com/passage/?search=John+3%3A16&version=KJV'
+    it "returns the default link" do
+      expect(votd.link).to eq "https://www.biblegateway.com/passage/?search=John+3%3A16&version=KJV"
     end
   end
 
@@ -64,7 +64,7 @@ describe "Votd::Base" do
     end
 
     it "generates a VotdError when not used with a block" do
-      expect{votd.custom_html}.to raise_error(Votd::VotdError)
+      expect { votd.custom_html }.to raise_error(Votd::VotdError)
     end
   end
 
@@ -89,8 +89,7 @@ describe "Votd::Base" do
     end
 
     it "generates a VotdError when not used with a block" do
-      expect{votd.custom_text}.to raise_error(Votd::VotdError)
+      expect { votd.custom_text }.to raise_error(Votd::VotdError)
     end
   end
-
 end

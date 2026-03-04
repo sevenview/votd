@@ -1,12 +1,12 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe "Votd::BibleGateway" do
   let(:votd) { Votd::BibleGateway.new }
   let(:votd_nlt) { Votd::BibleGateway.new(:nlt) }
 
-  let(:uri_regex) { /#{Votd::BibleGateway::ENDPOINT_URL}\d*/ }
+  let(:uri_regex) { /#{Votd::BibleGateway::ENDPOINT_URL}\d*/o }
 
-  context 'With the default version' do
+  context "With the default version" do
     before do
       fake_a_uri(uri_regex, "bible_gateway/bible_gateway.rss")
     end
@@ -29,14 +29,14 @@ describe "Votd::BibleGateway" do
 
     describe ".version / .translation" do
       it "returns the correct bible version" do
-        expect(votd.version).to     eq "NIV"
+        expect(votd.version).to eq "NIV"
         expect(votd.translation).to eq "NIV"
       end
     end
 
     describe ".version_name / .translation_name" do
       it "returns the correct bible version name" do
-        expect(votd.version_name).to     eq "New International Version"
+        expect(votd.version_name).to eq "New International Version"
         expect(votd.translation_name).to eq "New International Version"
       end
     end
@@ -54,8 +54,8 @@ describe "Votd::BibleGateway" do
     end
 
     describe ".link" do
-      it 'returns the link' do
-        expect(votd.link).to eq 'http://www.biblegateway.com/passage/?search=1+John+1%3A9&version=NIV'
+      it "returns the link" do
+        expect(votd.link).to eq "http://www.biblegateway.com/passage/?search=1+John+1%3A9&version=NIV"
       end
     end
 
@@ -74,7 +74,7 @@ describe "Votd::BibleGateway" do
       end
 
       it "generates a VotdError when not used with a block" do
-        expect{votd.custom_html}.to raise_error(Votd::VotdError)
+        expect { votd.custom_html }.to raise_error(Votd::VotdError)
       end
     end
 
@@ -99,7 +99,7 @@ describe "Votd::BibleGateway" do
       end
 
       it "generates a VotdError when not used with a block" do
-        expect{votd.custom_text}.to raise_error(Votd::VotdError)
+        expect { votd.custom_text }.to raise_error(Votd::VotdError)
       end
     end
   end
@@ -122,39 +122,39 @@ describe "Votd::BibleGateway" do
     end
 
     it "prepends an ellipsis if first letter is not a capital letter" do
-      expect(votd.text).to match /^\.{3}\w/
+      expect(votd.text).to match(/^\.{3}\w/)
     end
 
     it "appends an ellipsis if last character is not a period" do
-      expect(votd.text).to match /ness\.{3}$/
+      expect(votd.text).to match(/ness\.{3}$/)
     end
   end
 
-  context 'When specifying a version' do
+  context "When specifying a version" do
     before do
-      fake_a_uri("#{Votd::BibleGateway::ENDPOINT_URL}#{51}", 'bible_gateway/bible_gateway_nlt.rss')
+      fake_a_uri("#{Votd::BibleGateway::ENDPOINT_URL}51", "bible_gateway/bible_gateway_nlt.rss")
     end
 
     it "returns the correct scripture verse" do
       expect(votd_nlt.text).to eq "Let the message about Christ, in all its richness, fill your lives. Teach and counsel each other with all the wisdom he gives. Sing psalms and hymns and spiritual songs to God with thankful hearts."
     end
 
-    it 'returns the correct version info' do
-      expect(votd_nlt.version).to eq 'NLT'
-      expect(votd_nlt.version_name).to eq 'New Living Translation'
+    it "returns the correct version info" do
+      expect(votd_nlt.version).to eq "NLT"
+      expect(votd_nlt.version_name).to eq "New Living Translation"
     end
 
     it "returns copyright information" do
       expect(votd_nlt.copyright).to eq "Brought to you by BibleGateway.com. Copyright (C) NLT. All Rights Reserved."
     end
 
-    it 'returns the link' do
-      expect(votd_nlt.link).to eq 'https://www.biblegateway.com/passage/?search=Colossians+3%3A16&version=51'
+    it "returns the link" do
+      expect(votd_nlt.link).to eq "https://www.biblegateway.com/passage/?search=Colossians+3%3A16&version=51"
     end
 
-    context 'with an invalid version code' do
-      it 'throws an error' do
-        expect{ Votd::BibleGateway.new(:foo) }.to raise_error(Votd::InvalidBibleVersion)
+    context "with an invalid version code" do
+      it "throws an error" do
+        expect { Votd::BibleGateway.new(:foo) }.to raise_error(Votd::InvalidBibleVersion)
       end
     end
   end

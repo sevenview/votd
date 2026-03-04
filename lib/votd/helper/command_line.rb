@@ -20,7 +20,7 @@ module Votd
       # @param [String] text text to print inside the banner
       # @return [nil]
       def banner(text, line_width = 40)
-        separator = '=' * line_width
+        separator = "=" * line_width
         banner_text = [separator, text.center(line_width), separator].join("\n")
         puts banner_text
         nil
@@ -32,7 +32,7 @@ module Votd
       # @return [String] wrapped text
       def word_wrap(text, line_width = 40)
         text.split("\n").collect do |line|
-          line.length > line_width ? line.gsub(/(.{1,#{line_width}})(\s+|$)/, "\\1\n").strip : line
+          (line.length > line_width) ? line.gsub(/(.{1,#{line_width}})(\s+|$)/, "\\1\n").strip : line
         end * "\n"
       end
     end

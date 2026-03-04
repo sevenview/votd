@@ -11,7 +11,7 @@ module Votd
       # @param [String] text the text you want to strip HTML tags from
       # @return [String]
       def strip_html_tags(text)
-        text.gsub(/<\/?[^>]*>/, '')
+        text.gsub(/<\/?[^>]*>/, "")
       end
 
       # Prepends '...' if first letter is not a capital letter
@@ -29,12 +29,11 @@ module Votd
         when /[a-zA-Z]$/
           "#{text}..."
         when /[,;]$/
-          text.sub(/[,;]$/, '...')
+          text.sub(/[,;]$/, "...")
         else
           text
         end
       end
-
     end
   end
 end

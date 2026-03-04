@@ -8,9 +8,9 @@ module Votd
   # Use Votd::BibleGateway.new(:esv) for an ESV verse of the day instead.
   class ESVBible
     def initialize
-      raise Votd::VotdError, 'Votd::ESVBible is no longer supported. ' \
-        'The gnpcb.org endpoint has been shut down. ' \
-        'Use Votd::BibleGateway.new(:esv) for an ESV verse of the day.'
+      raise Votd::VotdError, "Votd::ESVBible is no longer supported. " \
+        "The gnpcb.org endpoint has been shut down. " \
+        "Use Votd::BibleGateway.new(:esv) for an ESV verse of the day."
     end
   end
 end

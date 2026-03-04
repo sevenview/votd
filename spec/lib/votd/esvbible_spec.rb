@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe "Votd::ESVBible" do
   it "raises a VotdError explaining the service is no longer supported" do

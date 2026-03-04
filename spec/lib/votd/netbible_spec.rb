@@ -1,5 +1,5 @@
-require 'spec_helper'
-require 'json'
+require "spec_helper"
+require "json"
 
 describe "Votd::NETBible" do
   let(:votd) { Votd::NetBible.new }
@@ -19,7 +19,7 @@ describe "Votd::NETBible" do
 
     it "contains no HTML tags" do
       fake_a_uri(Votd::NetBible::ENDPOINT_URL, "netbible/netbible_with_html.json")
-      expect(votd.text).to_not match /<\/?[^>]*>/
+      expect(votd.text).to_not match(/<\/?[^>]*>/)
     end
   end
 
@@ -31,14 +31,14 @@ describe "Votd::NETBible" do
 
   describe ".version / .translation" do
     it "returns the correct bible version" do
-      expect(votd.version).to     eq "NETBible"
+      expect(votd.version).to eq "NETBible"
       expect(votd.translation).to eq "NETBible"
     end
   end
 
   describe ".version_name / .translation_name" do
     it "returns the correct bible version" do
-      expect(votd.version_name).to     eq "NET Bible"
+      expect(votd.version_name).to eq "NET Bible"
       expect(votd.translation_name).to eq "NET Bible"
     end
   end
@@ -56,8 +56,8 @@ describe "Votd::NETBible" do
   end
 
   describe ".link" do
-    it 'returns the link' do
-      expect(votd.link).to eq 'https://netbible.org/bible/Ephesians+2:8'
+    it "returns the link" do
+      expect(votd.link).to eq "https://netbible.org/bible/Ephesians+2:8"
     end
   end
 
@@ -76,7 +76,7 @@ describe "Votd::NETBible" do
     end
 
     it "generates a VotdError when not used with a block" do
-      expect{ votd.custom_html }.to raise_error(Votd::VotdError)
+      expect { votd.custom_html }.to raise_error(Votd::VotdError)
     end
   end
 
@@ -101,7 +101,7 @@ describe "Votd::NETBible" do
     end
 
     it "generates a VotdError when not used with a block" do
-      expect{ votd.custom_text }.to raise_error(Votd::VotdError)
+      expect { votd.custom_text }.to raise_error(Votd::VotdError)
     end
   end
 
@@ -111,9 +111,9 @@ describe "Votd::NETBible" do
     end
 
     it "falls back to default VotD values" do
-      expect(votd.version).to   eq Votd::Base::DEFAULT_BIBLE_VERSION
+      expect(votd.version).to eq Votd::Base::DEFAULT_BIBLE_VERSION
       expect(votd.reference).to eq Votd::Base::DEFAULT_BIBLE_REFERENCE
-      expect(votd.text).to      eq Votd::Base::DEFAULT_BIBLE_TEXT
+      expect(votd.text).to eq Votd::Base::DEFAULT_BIBLE_TEXT
     end
   end
 
@@ -123,13 +123,11 @@ describe "Votd::NETBible" do
     end
 
     it "prepends an ellipsis if first letter is not a capital letter" do
-      expect(votd.text).to match /^\.{3}\w/
+      expect(votd.text).to match(/^\.{3}\w/)
     end
 
     it "appends an ellipsis if last character is not a period" do
-      expect(votd.text).to match /\w\.{1,3}$/
+      expect(votd.text).to match(/\w\.{1,3}$/)
     end
-
   end
-
 end

@@ -5,14 +5,14 @@ module Votd
   # translation.
   class NetBible < Votd::Base
     # The name of the Bible Translation that this module generates
-    BIBLE_VERSION = 'NETBible'
-    BIBLE_VERSION_NAME = 'NET Bible'
+    BIBLE_VERSION = "NETBible"
+    BIBLE_VERSION_NAME = "NET Bible"
 
     # The URL of the API gateway
-    ENDPOINT_URL = 'https://labs.bible.org/api/?passage=votd&type=json'
+    ENDPOINT_URL = "https://labs.bible.org/api/?passage=votd&type=json"
 
     # The URL of the website to view the verse (used in ``.link``)
-    NET_BIBLE_URL = 'https://netbible.org/bible'
+    NET_BIBLE_URL = "https://netbible.org/bible"
 
     private
 
@@ -21,19 +21,19 @@ module Votd
       netbible_data = JSON.parse(HTTParty.get(ENDPOINT_URL))
 
       # use bookname from first verse -- assume votd won't span books
-      bookname = netbible_data[0]['bookname']
+      bookname = netbible_data[0]["bookname"]
 
       # use chapter from first verse -- assume votd won't span chapters
-      chapter = netbible_data[0]['chapter']
+      chapter = netbible_data[0]["chapter"]
 
-      verse_numbers = netbible_data.map { |v| v['verse'] }
-      verses        = netbible_data.map { |v| v['text'] }
+      verse_numbers = netbible_data.map { |v| v["verse"] }
+      verses = netbible_data.map { |v| v["text"] }
 
       # now build the reference
-      @reference = "#{bookname} #{chapter}:#{verse_numbers.join('-')}"
+      @reference = "#{bookname} #{chapter}:#{verse_numbers.join("-")}"
 
       # build the text
-      text = Helper::Text.strip_html_tags(verses.join(' '))
+      text = Helper::Text.strip_html_tags(verses.join(" "))
       text = Helper::Text.clean_verse_start(text)
       text = Helper::Text.clean_verse_end(text)
 
@@ -43,8 +43,7 @@ module Votd
       @version_name = BIBLE_VERSION_NAME
 
       @link = generate_link(bookname, chapter, verse_numbers.first)
-
-    rescue => e
+    rescue
       # use default info for VotD
       set_defaults
     end

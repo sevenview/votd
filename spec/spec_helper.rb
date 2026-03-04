@@ -1,6 +1,6 @@
-require 'rspec'
-require 'votd'
-require 'webmock/rspec'
+require "rspec"
+require "votd"
+require "webmock/rspec"
 
 RSpec.configure do |config|
   config.mock_with :rspec
@@ -8,7 +8,7 @@ end
 
 # Fixtures
 def expand_fixture_path(filename)
-  File.join(File.dirname(__FILE__), 'fixtures', filename)
+  File.join(File.dirname(__FILE__), "fixtures", filename)
 end
 
 def read_fixture(filename)
