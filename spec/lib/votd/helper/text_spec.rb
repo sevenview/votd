@@ -15,6 +15,11 @@ describe Votd::Helper::Text do
       text = "for God so loved"
       expect(Votd::Helper::Text.clean_verse_start(text)).to eq "...for God so loved"
     end
+
+    it "leaves the verse unchanged if it starts with a capital letter" do
+      text = "For God so loved"
+      expect(Votd::Helper::Text.clean_verse_start(text)).to eq "For God so loved"
+    end
   end
 
   describe ".clean_verse_end" do
