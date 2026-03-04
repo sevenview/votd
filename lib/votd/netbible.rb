@@ -30,7 +30,8 @@ module Votd
       verses = netbible_data.map { |v| v["text"] }
 
       # now build the reference
-      @reference = "#{bookname} #{chapter}:#{verse_numbers.join("-")}"
+      @reference = "#{bookname} #{chapter}:#{verse_numbers.first}"
+      @reference += "-#{verse_numbers.last}" if verse_numbers.size > 1
 
       # build the text
       text = Helper::Text.strip_html_tags(verses.join(" "))

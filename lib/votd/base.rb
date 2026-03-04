@@ -67,13 +67,9 @@ module Votd
     # Initializes the class and retrieves the verse of the day.
     # @return [Base]
     def initialize
-      @text = ""
-      @reference = ""
-      @copyright = nil
       @date = Date.today
       @custom_html = nil
       @custom_text = nil
-      @link = nil
       get_votd
     end
 
@@ -161,7 +157,7 @@ module Votd
       end
     end
 
-    protected
+    private
 
     # Gets the VotD. For {Votd::Base} this will return default values and can be
     # used in the event of an exception thrown when getting data from live web

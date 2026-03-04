@@ -63,45 +63,38 @@ module Votd
       url = "#{ENDPOINT_URL}#{@version_number}"
       feed = Feedjira.parse(HTTParty.get(url).body)
       entry = feed.entries.first
-      cleaned_text = clean_text(entry.content)
+
+      stripped = strip_html_quote_entities(entry.content)
+      stripped = Helper::Text.strip_html_tags(stripped)
 
       @reference = entry.title
       @link = entry.entry_id
-      @text = cleaned_text
-      @copyright = get_copyright(entry.content)
+      @text = build_verse_text(stripped)
+      @copyright = extract_copyright(stripped)
     rescue
       # use default info for VotD
       set_defaults
     end
 
-    # Cleans up the text. Removes:
-    #   - HTML quote entities
-    #   - HTML tags
-    #   - Copyright text
-    #   - Extra spaces, line breaks, etc.
+    # Builds clean verse text from HTML-stripped content
     # @return [String]
-    def clean_text(text)
-      text = strip_html_quote_entities(text)
-      text = Helper::Text.strip_html_tags(text)
-      text = strip_copyright_text(text)
-      text = text.strip
+    def build_verse_text(stripped)
+      text = strip_copyright_text(stripped).strip
       text = Helper::Text.clean_verse_start(text)
       Helper::Text.clean_verse_end(text)
     end
 
-    # Extracts copyright tag from the Bible text
+    # Extracts copyright tag from HTML-stripped content
     # @return [String, nil]
-    def get_copyright(text)
-      text = strip_html_quote_entities(text)
-      text = Helper::Text.strip_html_tags(text)
-      match = text.match(COPYRIGHT_TEXT_REGEX)
+    def extract_copyright(stripped)
+      match = stripped.match(COPYRIGHT_TEXT_REGEX)
       match ? match[1] : nil
     end
 
     # Removes HTML quote entities added by BibleGateway
     # @return [String]
     def strip_html_quote_entities(text)
-      text.gsub(/&.dquo;/, "")
+      text.gsub(/&[lr]dquo;/, "")
     end
 
     # Removes copyright text from the Bible text
