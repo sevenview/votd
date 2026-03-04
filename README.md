@@ -1,7 +1,6 @@
 # VotD - (Bible) Verse of the Day
 
-[![Build Status](https://secure.travis-ci.org/doctorbh/votd.png?branch=master)](http://travis-ci.org/Sevenview/votd)
-[![Code Climate](https://codeclimate.com/github/sevenview/votd.png)](https://codeclimate.com/github/sevenview/votd)
+[![Ruby](https://github.com/sevenview/votd/actions/workflows/ruby.yml/badge.svg)](https://github.com/sevenview/votd/actions/workflows/ruby.yml)
 
 VotD (Verse of the Day) is a Ruby Gem that wraps various web services that generate
 daily Bible Verses.
@@ -189,16 +188,6 @@ See our [CHANGELOG](https://github.com/Sevenview/votd/blob/master/CHANGELOG.md) 
 
 See our [TODO](https://github.com/Sevenview/votd/blob/master/TODO.md) file.
 
-## Authors
+## License
 
-Christopher Clarke <chris@seven7.ca>
-
-Stephen Clarke <steve@sevenview.ca>
-
-[Sebastian Hirsch](https://github.com/SebastianHirsch) (ESV)
-
-## Copyright
-
-(The MIT License)
-
-&copy; 2012-2019 Christopher Clarke, Stephen Clarke. See [LICENSE](https://github.com/Sevenview/votd/blob/master/LICENSE) for details.
+MIT — see [LICENSE](https://github.com/Sevenview/votd/blob/master/LICENSE) for details.
