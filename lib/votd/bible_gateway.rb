@@ -71,9 +71,8 @@ module Votd
       @link = entry.entry_id
       @text = build_verse_text(stripped)
       @copyright = extract_copyright(stripped)
-    rescue
-      # use default info for VotD
-      set_defaults
+    rescue => e
+      report_and_raise(e, "Failed to fetch verse from BibleGateway")
     end
 
     # Builds clean verse text from HTML-stripped content

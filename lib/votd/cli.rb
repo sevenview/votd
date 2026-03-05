@@ -25,6 +25,9 @@ module Votd
       warn "Error: Unknown translation '#{options[:translation]}'"
       warn "Valid translations: #{BibleGateway::BIBLE_VERSIONS.keys.join(", ")}"
       exit 1
+    rescue FetchError => e
+      warn "Error: #{e.message}"
+      exit 1
     end
 
     desc "version", "Show votd gem version"
