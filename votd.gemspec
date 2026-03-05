@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
                      "BibleGateway, NetBible, and OurManna. Provides both a library and CLI."
   spec.homepage = "https://github.com/sevenview/votd"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.3", "< 4.1"
+  spec.required_ruby_version = [">= 3.3", "< 4.1"]
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
