@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Votd
+  # Namespace for helper modules used internally by VotD providers and the CLI.
   module Helper
     # This module contains helper methods that support the
     # VotD text parsing.

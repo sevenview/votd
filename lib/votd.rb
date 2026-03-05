@@ -22,16 +22,24 @@ module Votd
     #   Votd.on_error do |provider_class, error|
     #     Sentry.capture_exception(error)
     #   end
+    #
+    # @yield [provider_class, error] invoked when a provider fails
+    # @yieldparam [Class] provider_class the provider class that failed (e.g. Votd::BibleGateway)
+    # @yieldparam [FetchError] error the wrapped exception
+    # @return [void]
     def on_error(&block)
       @on_error = block
     end
 
+    # Returns the registered on_error callback, if any.
     # @api private
+    # @return [Proc, nil]
     def on_error_callback
       @on_error
     end
 
     # Resets logger and on_error callback. Useful in tests.
+    # @return [void]
     def reset_configuration
       @logger = nil
       @on_error = nil

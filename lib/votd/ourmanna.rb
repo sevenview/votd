@@ -3,9 +3,16 @@
 module Votd
   # Retrieves a Verse of the Day from https://ourmanna.com using the NIV
   # translation.
+  #
+  # @example
+  #   votd = Votd::OurManna.new
+  #   votd.text       # => "For God so loved the world..."
+  #   votd.reference  # => "John 3:16"
+  #   votd.version    # => "NIV"
   class OurManna < Votd::Base
     # The name of the Bible Translation that this module generates
     BIBLE_VERSION = "NIV"
+    # The full name of the Bible translation
     BIBLE_VERSION_NAME = "New International Version"
 
     # The URL of the API gateway
@@ -13,7 +20,10 @@ module Votd
 
     private
 
-    # Gets the verse in JSON format from ourmanna.com
+    # Fetches the verse of the day in JSON format from ourmanna.com.
+    # Parses the response and extracts reference, text, link, and copyright.
+    # @raise [FetchError] if the HTTP request or JSON parsing fails
+    # @return [void]
     def get_votd
       data = JSON.parse(HTTParty.get(ENDPOINT_URL).body)
       details = data["verse"]["details"]

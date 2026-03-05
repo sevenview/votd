@@ -16,8 +16,8 @@ module Votd
       #   ====================
       #        My Banner
       #   ====================
-      # @param [Integer] line_width number of columns for width
       # @param [String] text text to print inside the banner
+      # @param [Integer] line_width number of columns for width
       # @return [nil]
       def banner(text, line_width = 40)
         separator = "=" * line_width

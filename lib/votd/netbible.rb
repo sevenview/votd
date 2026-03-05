@@ -3,9 +3,16 @@
 module Votd
   # Retrieves a Verse of the Day from https://labs.bible.org using the NETBible
   # translation.
+  #
+  # @example
+  #   votd = Votd::NetBible.new
+  #   votd.text       # => "For God so loved the world..."
+  #   votd.reference  # => "John 3:16"
+  #   votd.version    # => "NETBible"
   class NetBible < Votd::Base
     # The name of the Bible Translation that this module generates
     BIBLE_VERSION = "NETBible"
+    # The full name of the Bible translation
     BIBLE_VERSION_NAME = "NET Bible"
 
     # The URL of the API gateway
@@ -16,7 +23,11 @@ module Votd
 
     private
 
-    # Gets the verse in JSON format from bible.org
+    # Fetches the verse of the day in JSON format from bible.org.
+    # Parses the response, builds the reference, cleans the verse text,
+    # and generates a link to the passage.
+    # @raise [FetchError] if the HTTP request or JSON parsing fails
+    # @return [void]
     def get_votd
       netbible_data = JSON.parse(HTTParty.get(ENDPOINT_URL))
 
@@ -48,6 +59,11 @@ module Votd
       report_and_raise(e, "Failed to fetch verse from NetBible")
     end
 
+    # Generates a URL to the verse on netbible.org.
+    # @param [String] bookname the book name (e.g. "John")
+    # @param [String] chapter the chapter number
+    # @param [String] verse_number the starting verse number
+    # @return [String] the full URL to the passage
     def generate_link(bookname, chapter, verse_number)
       "#{NET_BIBLE_URL}/#{bookname}+#{chapter}:#{verse_number}"
     end

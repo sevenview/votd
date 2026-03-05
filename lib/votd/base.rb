@@ -62,6 +62,7 @@ module Votd
     # is provided
     DEFAULT_BIBLE_VERSION_NAME = "King James Version"
 
+    # The default link to use if none is provided by the VotD service
     DEFAULT_LINK = "https://www.biblegateway.com/passage/?search=John+3%3A16&version=KJV"
 
     # Initializes the class and retrieves the verse of the day.
@@ -113,7 +114,7 @@ module Votd
     # @yield [votd] the VotD itself
     # @yieldparam [Base] votd the VotD itself
     # @yieldreturn [String] the VotD formatted as custom HTML
-    # @raise {VotdError} when called without block format
+    # @raise [VotdError] when called without block format
     def custom_html
       if block_given?
         @custom_html = yield(self)
@@ -148,7 +149,7 @@ module Votd
     # @yield [votd] the VotD itself
     # @yieldparam [Base] votd the VotD itself
     # @yieldreturn [String] the VotD formatted as custom text
-    # @raise {VotdError} when called without block format
+    # @raise [VotdError] when called without block format
     def custom_text
       if block_given?
         @custom_text = yield(self)
@@ -161,11 +162,15 @@ module Votd
 
     # Gets the VotD. For {Votd::Base} this will return default values and can be
     # used in the event of an exception thrown when getting data from live web
-    # services in subclasses of {Votd::Base}
+    # services in subclasses of {Votd::Base}.
+    # Subclasses override this to fetch from their respective APIs.
+    # @return [void]
     def get_votd
       set_defaults
     end
 
+    # Sets all attributes to their default values.
+    # @return [void]
     def set_defaults
       @text = DEFAULT_BIBLE_TEXT
       @reference = DEFAULT_BIBLE_REFERENCE

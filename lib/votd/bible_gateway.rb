@@ -6,12 +6,18 @@ module Votd
   # Retrieves a Verse of the Day from biblegateway.com using a variety
   # of translations.
   #
-  # Default translation is NIV (New International Version)
+  # Default translation is NIV (New International Version).
   #
-  # docs: https://www.biblegateway.com/usage/votd/docs/
+  # @example Fetch the default (NIV) verse of the day
+  #   votd = Votd::BibleGateway.new
+  #   votd.text       # => "For God so loved the world..."
+  #   votd.reference  # => "John 3:16"
   #
-  # version list: https://www.biblegateway.com/usage/linking/versionslist.php
-
+  # @example Fetch the KJV verse of the day
+  #   votd = Votd::BibleGateway.new(:kjv)
+  #
+  # @see https://www.biblegateway.com/usage/votd/docs/ BibleGateway VotD docs
+  # @see https://www.biblegateway.com/usage/linking/versionslist.php Version list
   class BibleGateway < Votd::Base
     # These are the English translations that are copyright-approved for Bible
     # Gateway VotD as of November 2019.
@@ -44,7 +50,10 @@ module Votd
     # Regular expression for pulling the copyright out of the Bible text
     COPYRIGHT_TEXT_REGEX = /(Brought to you by BibleGateway.*$)/
 
-    # Initializes the BibleGateway class
+    # Initializes the BibleGateway class and fetches the verse of the day.
+    # @param [Symbol] version the Bible translation key (e.g. +:niv+, +:kjv+, +:esv+).
+    #   Must be a key in {BIBLE_VERSIONS}.
+    # @raise [InvalidBibleVersion] if the version symbol is not in {BIBLE_VERSIONS}
     # @return [BibleGateway]
     def initialize(version = :niv)
       raise InvalidBibleVersion unless BIBLE_VERSIONS.key?(version)
@@ -57,8 +66,10 @@ module Votd
 
     private
 
-    # Gets the votd from the Bible Gateway RSS feed
-    # @return [String]
+    # Fetches the verse of the day from the Bible Gateway RSS feed.
+    # Parses the feed, extracts the verse text, reference, link, and copyright.
+    # @raise [FetchError] if the HTTP request or feed parsing fails
+    # @return [void]
     def get_votd
       url = "#{ENDPOINT_URL}#{@version_number}"
       feed = Feedjira.parse(HTTParty.get(url).body)
@@ -75,29 +86,34 @@ module Votd
       report_and_raise(e, "Failed to fetch verse from BibleGateway")
     end
 
-    # Builds clean verse text from HTML-stripped content
-    # @return [String]
+    # Builds clean verse text from HTML-stripped content.
+    # Removes copyright text and cleans up verse start/end punctuation.
+    # @param [String] stripped the HTML-stripped feed content
+    # @return [String] the cleaned verse text
     def build_verse_text(stripped)
       text = strip_copyright_text(stripped).strip
       text = Helper::Text.clean_verse_start(text)
       Helper::Text.clean_verse_end(text)
     end
 
-    # Extracts copyright tag from HTML-stripped content
-    # @return [String, nil]
+    # Extracts the copyright notice from HTML-stripped content.
+    # @param [String] stripped the HTML-stripped feed content
+    # @return [String, nil] the copyright text, or nil if not found
     def extract_copyright(stripped)
       match = stripped.match(COPYRIGHT_TEXT_REGEX)
       match ? match[1] : nil
     end
 
-    # Removes HTML quote entities added by BibleGateway
-    # @return [String]
+    # Removes HTML quote entities (+&ldquo;+ and +&rdquo;+) added by BibleGateway.
+    # @param [String] text the raw feed content
+    # @return [String] text with quote entities removed
     def strip_html_quote_entities(text)
       text.gsub(/&[lr]dquo;/, "")
     end
 
-    # Removes copyright text from the Bible text
-    # @return [String]
+    # Removes copyright text from the Bible text.
+    # @param [String] text the verse text potentially containing a copyright notice
+    # @return [String] text with copyright removed
     def strip_copyright_text(text)
       text.gsub(COPYRIGHT_TEXT_REGEX, "")
     end
