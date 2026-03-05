@@ -5,7 +5,7 @@ Changelog
 -----
 *March 4, 2026*
 
-* Upgrade Ruby from 2.6.5 (EOL) to 3.4.1; require >= 3.3
+* Upgrade Ruby from 2.6.5 (EOL) to 3.4.8; require >= 3.3
 * Fix BibleGateway and NetBible API endpoints (http → https)
 * Add `Votd::OurManna` provider — free, no-auth JSON API from ourmanna.com (NIV)
 * **Breaking:** Replace stub CLI with Thor-based CLI. The `votd` command now
@@ -14,6 +14,13 @@ Changelog
 * Deprecate `Votd::ESVBible` — the gnpcb.org endpoint has been shut down.
   `ESVBible.new` now raises `Votd::VotdError` with a message directing users
   to `Votd::BibleGateway.new(:esv)` as a replacement.
+* **Breaking:** Providers now raise `Votd::FetchError` on any failure instead
+  of silently falling back to defaults. Original exception preserved as `#cause`.
+* Add `Votd.logger` and `Votd.on_error` callback for error observability
+* Add YARD documentation to all public classes and methods
+* Modernize gemspec: explicit file list, bounded dependencies, RubyGems metadata
+* Move gem executable from `bin/` to `exe/` (Bundler convention)
+* Add GitHub Actions CI and release workflows with OIDC trusted publishing
 
 3.0.1
 -----
