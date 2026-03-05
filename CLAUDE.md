@@ -42,4 +42,4 @@ This is a Ruby gem (`votd`) that wraps Bible verse-of-the-day web services.
 
 **Testing:** Uses RSpec + WebMock with hand-crafted fixtures (not VCR cassettes) in `spec/fixtures/<provider>/`. HTTP calls are stubbed via `fake_a_uri(uri, fixture_path)` and `fake_a_broken_uri(uri)` helpers in `spec/spec_helper.rb`. To test against live APIs run `bundle exec ruby bin/smoke_test`.
 
-**CLI:** `bin/votd` prints the BibleGateway VotD to stdout using `CommandLine` helpers.
+**CLI:** `Votd::CLI` (`lib/votd/cli.rb`) is a Thor-based CLI invoked by `bin/votd`. Supports `verse` (with `--provider`, `--translation`, `--format`) and `version` subcommands.

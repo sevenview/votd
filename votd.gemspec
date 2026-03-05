@@ -17,6 +17,7 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = ">= 3.3"
 
-  gem.add_dependency "httparty"
   gem.add_dependency "feedjira"
+  gem.add_dependency "httparty"
+  gem.add_dependency "thor"
 end
