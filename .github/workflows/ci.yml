@@ -1,0 +1,40 @@
+# CI - Run tests and linting on pull requests and pushes
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    name: Test (Ruby ${{ matrix.ruby }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: ['3.3', '3.4', '4.0']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+
+      - name: Run tests
+        run: bundle exec rspec
+
+      - name: Run linter
+        if: matrix.ruby == '3.4'
+        run: bundle exec standardrb
+
+      - name: Verify CLI runs
+        run: |
+          bundle exec exe/votd version
+          bundle exec exe/votd --help
