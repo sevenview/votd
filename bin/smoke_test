@@ -8,15 +8,11 @@ FAIL = "\e[31mFAIL\e[0m"
 
 def test(name)
   votd = yield
-  if votd.text == Votd::Base::DEFAULT_BIBLE_TEXT
-    puts "#{FAIL} #{name} — returned fallback verse (request likely failed)"
-  else
-    puts "#{PASS} #{name}"
-    puts "  reference : #{votd.reference}"
-    puts "  version   : #{votd.version}"
-    puts "  text      : #{votd.text[0..80]}..."
-    puts "  link      : #{votd.link}"
-  end
+  puts "#{PASS} #{name}"
+  puts "  reference : #{votd.reference}"
+  puts "  version   : #{votd.version}"
+  puts "  text      : #{votd.text[0..80]}..."
+  puts "  link      : #{votd.link}"
 rescue => e
   puts "#{FAIL} #{name} — #{e.class}: #{e.message}"
 end

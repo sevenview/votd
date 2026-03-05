@@ -4,6 +4,10 @@ require "webmock/rspec"
 
 RSpec.configure do |config|
   config.mock_with :rspec
+
+  config.after(:each) do
+    Votd.reset_configuration
+  end
 end
 
 # Fixtures
@@ -25,10 +29,8 @@ def fake_a_broken_uri(uri)
   stub_request(:get, uri).to_return(body: "Oopsies")
 end
 
-RSpec.shared_examples "falls back to defaults" do
-  it "falls back to default VotD values" do
-    expect(votd.version).to eq Votd::Base::DEFAULT_BIBLE_VERSION
-    expect(votd.reference).to eq Votd::Base::DEFAULT_BIBLE_REFERENCE
-    expect(votd.text).to eq Votd::Base::DEFAULT_BIBLE_TEXT
+RSpec.shared_examples "raises a FetchError" do
+  it "raises a Votd::FetchError" do
+    expect { votd }.to raise_error(Votd::FetchError)
   end
 end

@@ -1,4 +1,5 @@
 require "spec_helper"
+require "logger"
 
 describe "Votd::Base" do
   let(:votd) { Votd::Base.new }
@@ -90,6 +91,68 @@ describe "Votd::Base" do
 
     it "generates a VotdError when not used with a block" do
       expect { votd.custom_text }.to raise_error(Votd::VotdError)
+    end
+  end
+
+  describe "Votd.logger" do
+    it "logs errors when a provider fails" do
+      logger = instance_double(Logger)
+      Votd.logger = logger
+      expect(logger).to receive(:error).with(/BibleGateway.*SocketError/)
+
+      stub_request(:get, /biblegateway/).to_raise(SocketError)
+      expect { Votd::BibleGateway.new }.to raise_error(Votd::FetchError)
+    end
+
+    it "does not raise when no logger is configured" do
+      stub_request(:get, /biblegateway/).to_raise(SocketError)
+      expect { Votd::BibleGateway.new }.to raise_error(Votd::FetchError)
+    end
+  end
+
+  describe "Votd.on_error" do
+    it "invokes the callback with provider class and error" do
+      callback_args = nil
+      Votd.on_error do |provider_class, error|
+        callback_args = [provider_class, error]
+      end
+
+      stub_request(:get, /biblegateway/).to_raise(SocketError)
+      expect { Votd::BibleGateway.new }.to raise_error(Votd::FetchError)
+
+      expect(callback_args).not_to be_nil
+      expect(callback_args[0]).to eq Votd::BibleGateway
+      expect(callback_args[1]).to be_a(Votd::FetchError)
+    end
+  end
+
+  describe "Votd.reset_configuration" do
+    it "clears logger and on_error callback" do
+      Votd.logger = Logger.new($stderr)
+      Votd.on_error { |_provider, _error| }
+
+      Votd.reset_configuration
+
+      expect(Votd.logger).to be_nil
+      expect(Votd.on_error_callback).to be_nil
+    end
+  end
+
+  describe "Votd::FetchError" do
+    it "is a subclass of VotdError" do
+      expect(Votd::FetchError.superclass).to eq Votd::VotdError
+    end
+
+    it "preserves the original exception as #cause" do
+      stub_request(:get, /biblegateway/).to_raise(SocketError.new("connection refused"))
+
+      begin
+        Votd::BibleGateway.new
+      rescue Votd::FetchError => e
+        expect(e.cause).to be_a(SocketError)
+        expect(e.cause.message).to eq "connection refused"
+        expect(e.message).to include("Failed to fetch verse from BibleGateway")
+      end
     end
   end
 end

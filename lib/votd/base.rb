@@ -2,9 +2,9 @@
 
 module Votd
   # This is the base class that all Votd lookup modules inherit from.
-  # It provides default values for the Votd in the event of lookup failure.
   # Child classes should override the {#get_votd} method to implement their
-  # specific lookup function.
+  # specific lookup function. Errors during fetch are raised as {FetchError}
+  # and reported via {Votd.logger} and {Votd.on_error}.
   class Base
     # @example
     #   votd.text  # "For by grace you are saved through faith..."
@@ -173,6 +173,17 @@ module Votd
       @version_name = DEFAULT_BIBLE_VERSION_NAME
       @link = DEFAULT_LINK
       @copyright = nil
+    end
+
+    # Logs the error, invokes the on_error callback, and raises a FetchError.
+    # @param error [Exception] the original exception
+    # @param message [String] a human-readable description of the failure
+    # @raise [FetchError]
+    def report_and_raise(error, message)
+      wrapped = FetchError.new("#{message}: #{error.message}")
+      Votd.logger&.error("#{self.class.name} - #{error.class}: #{error.message}")
+      Votd.on_error_callback&.call(self.class, wrapped)
+      raise wrapped
     end
   end
 end

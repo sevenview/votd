@@ -44,9 +44,8 @@ module Votd
       @version_name = BIBLE_VERSION_NAME
 
       @link = generate_link(bookname, chapter, verse_numbers.first)
-    rescue
-      # use default info for VotD
-      set_defaults
+    rescue => e
+      report_and_raise(e, "Failed to fetch verse from NetBible")
     end
 
     def generate_link(bookname, chapter, verse_number)

@@ -28,9 +28,8 @@ module Votd
       @text = Helper::Text.clean_verse_end(text)
 
       @copyright = data["verse"]["notice"]
-    rescue
-      # use default info for VotD
-      set_defaults
+    rescue => e
+      report_and_raise(e, "Failed to fetch verse from OurManna")
     end
   end
 end
