@@ -112,14 +112,29 @@ describe "Votd::NETBible" do
   end
 
   context "When an error occurs" do
-    before do
-      fake_a_broken_uri(Votd::NetBible::ENDPOINT_URL)
+    context "with a malformed response body" do
+      before { fake_a_broken_uri(Votd::NetBible::ENDPOINT_URL) }
+      include_examples "falls back to defaults"
     end
 
-    it "falls back to default VotD values" do
-      expect(votd.version).to eq Votd::Base::DEFAULT_BIBLE_VERSION
-      expect(votd.reference).to eq Votd::Base::DEFAULT_BIBLE_REFERENCE
-      expect(votd.text).to eq Votd::Base::DEFAULT_BIBLE_TEXT
+    context "with a network timeout" do
+      before { stub_request(:get, Votd::NetBible::ENDPOINT_URL).to_timeout }
+      include_examples "falls back to defaults"
+    end
+
+    context "with a connection failure" do
+      before { stub_request(:get, Votd::NetBible::ENDPOINT_URL).to_raise(SocketError) }
+      include_examples "falls back to defaults"
+    end
+
+    context "with an HTTP 500 response" do
+      before { stub_request(:get, Votd::NetBible::ENDPOINT_URL).to_return(status: 500, body: "Internal Server Error") }
+      include_examples "falls back to defaults"
+    end
+
+    context "with an empty response body" do
+      before { stub_request(:get, Votd::NetBible::ENDPOINT_URL).to_return(body: "") }
+      include_examples "falls back to defaults"
     end
   end
 
