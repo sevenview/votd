@@ -1,23 +1,33 @@
 # frozen_string_literal: true
 
-require File.expand_path("../lib/votd/version", __FILE__)
+require_relative "lib/votd/version"
 
-Gem::Specification.new do |gem|
-  gem.authors = ["Steve Clarke", "Chris Clarke"]
-  gem.email = ["steve@sevenview.ca", "chris@seven7.ca"]
-  gem.summary = "Generate a (Bible) Verse of the Day using various web service wrappers"
-  gem.homepage = "https://github.com/sevenview/votd"
+Gem::Specification.new do |spec|
+  spec.name = "votd"
+  spec.version = Votd::VERSION
+  spec.authors = ["Steve Clarke"]
+  spec.email = ["steve@sevenview.ca"]
 
-  gem.files = `git ls-files -z`.split("\x0").reject { |f| f.start_with?("spec/", "bin/smoke_test") }
-  gem.executables = ["votd"]
-  gem.name = "votd"
-  gem.require_paths = ["lib"]
-  gem.version = Votd::VERSION
-  gem.license = "MIT"
+  spec.summary = "Generate a (Bible) Verse of the Day using various web service wrappers"
+  spec.description = "A Ruby gem that wraps Bible verse-of-the-day web services including " \
+                     "BibleGateway, NetBible, and OurManna. Provides both a library and CLI."
+  spec.homepage = "https://github.com/sevenview/votd"
+  spec.license = "MIT"
+  spec.required_ruby_version = ">= 3.3", "< 4.1"
 
-  gem.required_ruby_version = ">= 3.3"
+  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = spec.homepage
+  spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/master/CHANGELOG.md"
+  spec.metadata["rubygems_mfa_required"] = "true"
+  spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
-  gem.add_dependency "feedjira"
-  gem.add_dependency "httparty"
-  gem.add_dependency "thor"
+  spec.files = Dir.glob(%w[lib/**/*.rb exe/* LICENSE README.md CHANGELOG.md])
+
+  spec.bindir = "exe"
+  spec.executables = %w[votd]
+  spec.require_paths = ["lib"]
+
+  spec.add_dependency "feedjira", "~> 4.0"
+  spec.add_dependency "httparty", "~> 0.22"
+  spec.add_dependency "thor", "~> 1.3"
 end
