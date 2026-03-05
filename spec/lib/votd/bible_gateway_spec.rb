@@ -102,15 +102,30 @@ describe "Votd::BibleGateway" do
     end
   end
 
-  context "When an error occurrs" do
-    before do
-      fake_a_broken_uri(uri_regex)
+  context "When an error occurs" do
+    context "with a malformed response body" do
+      before { fake_a_broken_uri(uri_regex) }
+      include_examples "falls back to defaults"
     end
 
-    it "falls back to default VotD values" do
-      expect(votd.version).to eq Votd::Base::DEFAULT_BIBLE_VERSION
-      expect(votd.reference).to eq Votd::Base::DEFAULT_BIBLE_REFERENCE
-      expect(votd.text).to eq Votd::Base::DEFAULT_BIBLE_TEXT
+    context "with a network timeout" do
+      before { stub_request(:get, uri_regex).to_timeout }
+      include_examples "falls back to defaults"
+    end
+
+    context "with a connection failure" do
+      before { stub_request(:get, uri_regex).to_raise(SocketError) }
+      include_examples "falls back to defaults"
+    end
+
+    context "with an HTTP 500 response" do
+      before { stub_request(:get, uri_regex).to_return(status: 500, body: "Internal Server Error") }
+      include_examples "falls back to defaults"
+    end
+
+    context "with an empty response body" do
+      before { stub_request(:get, uri_regex).to_return(body: "") }
+      include_examples "falls back to defaults"
     end
   end
 
@@ -152,9 +167,21 @@ describe "Votd::BibleGateway" do
       expect(votd_nlt.link).to eq "https://www.biblegateway.com/passage/?search=Colossians+3%3A16&version=51"
     end
 
-    context "with an invalid version code" do
-      it "throws an error" do
+    context "with an invalid version argument" do
+      it "raises InvalidBibleVersion for an unknown symbol" do
         expect { Votd::BibleGateway.new(:foo) }.to raise_error(Votd::InvalidBibleVersion)
+      end
+
+      it "raises InvalidBibleVersion for nil" do
+        expect { Votd::BibleGateway.new(nil) }.to raise_error(Votd::InvalidBibleVersion)
+      end
+
+      it "raises InvalidBibleVersion for a String" do
+        expect { Votd::BibleGateway.new("niv") }.to raise_error(Votd::InvalidBibleVersion)
+      end
+
+      it "raises InvalidBibleVersion for an Integer" do
+        expect { Votd::BibleGateway.new(31) }.to raise_error(Votd::InvalidBibleVersion)
       end
     end
   end
