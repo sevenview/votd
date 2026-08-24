@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Unreleased
+----------
+
+* Require httparty `~> 0.24` (was `~> 0.22`) — 0.22.x and 0.23.x are affected by
+  CVE-2025-68696, an SSRF issue that can leak API keys on redirect.
+
 4.0.0
 -----
 *March 4, 2026*

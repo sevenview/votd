@@ -28,6 +28,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "feedjira", "~> 4.0"
-  spec.add_dependency "httparty", "~> 0.22"
+  spec.add_dependency "httparty", "~> 0.24"
   spec.add_dependency "thor", "~> 1.3"
 end
