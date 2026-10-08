@@ -16,7 +16,7 @@
 #
 # RubyGems setup:
 # - Configure trusted publishing at https://rubygems.org/gems/votd/trusted_publishers
-#   (GitHub repo: sevenview/votd, workflow: release.yml, environment: blank)
+#   (GitHub repo: onethreefivechurch/votd, workflow: release.yml, environment: blank)
 #
 name: Release
 
