@@ -1,6 +1,6 @@
 # VotD - (Bible) Verse of the Day
 
-[![Ruby](https://github.com/sevenview/votd/actions/workflows/ruby.yml/badge.svg)](https://github.com/sevenview/votd/actions/workflows/ruby.yml)
+[![Ruby](https://github.com/onethreefivechurch/votd/actions/workflows/ruby.yml/badge.svg)](https://github.com/onethreefivechurch/votd/actions/workflows/ruby.yml)
 
 VotD (Verse of the Day) is a Ruby Gem that wraps various web services that generate
 daily Bible Verses.
@@ -12,7 +12,7 @@ Currently the gem supports three VotD web services:
 * [Bible.org](https://labs.bible.org) - NETBible Translation
 * [Our Manna](https://ourmanna.com) - NIV Translation
 
-If you are able to contribute modules for any of these, please see our [CONTRIBUTING](https://github.com/Sevenview/votd/blob/master/CONTRIBUTING.md) file. Let us know before you begin work in case someone else has a module in-progress.
+If you are able to contribute modules for any of these, please see our [CONTRIBUTING](https://github.com/onethreefivechurch/votd/blob/master/CONTRIBUTING.md) file. Let us know before you begin work in case someone else has a module in-progress.
 
 ## Installation
 
@@ -183,11 +183,11 @@ Documentation may be found [here](http://rubydoc.info/gems/votd/file/README.md)
 
 ## Source Code
 
-Source code is available in our [GitHub repository](https://github.com/Sevenview/votd).
+Source code is available in our [GitHub repository](https://github.com/onethreefivechurch/votd).
 
 ## Requests
 
-To submit bug, feature requests, patches see our [Issues List](https://github.com/Sevenview/votd/issues) on GitHub.
+To submit bug, feature requests, patches see our [Issues List](https://github.com/onethreefivechurch/votd/issues) on GitHub.
 
 ## Contributing
 
@@ -198,16 +198,16 @@ To submit bug, feature requests, patches see our [Issues List](https://github.co
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create new Pull Request
 
-See more on [CONTRIBUTING](https://github.com/Sevenview/votd/blob/master/CONTRIBUTING.md).
+See more on [CONTRIBUTING](https://github.com/onethreefivechurch/votd/blob/master/CONTRIBUTING.md).
 
 ## Changelog
 
-See our [CHANGELOG](https://github.com/Sevenview/votd/blob/master/CHANGELOG.md) file.
+See our [CHANGELOG](https://github.com/onethreefivechurch/votd/blob/master/CHANGELOG.md) file.
 
 ## TODO
 
-See our [TODO](https://github.com/Sevenview/votd/blob/master/TODO.md) file.
+See our [TODO](https://github.com/onethreefivechurch/votd/blob/master/TODO.md) file.
 
 ## License
 
-MIT — see [LICENSE](https://github.com/Sevenview/votd/blob/master/LICENSE) for details.
+MIT — see [LICENSE](https://github.com/onethreefivechurch/votd/blob/master/LICENSE) for details.

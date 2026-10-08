@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Generate a (Bible) Verse of the Day using various web service wrappers"
   spec.description = "A Ruby gem that wraps Bible verse-of-the-day web services including " \
                      "BibleGateway, NetBible, and OurManna. Provides both a library and CLI."
-  spec.homepage = "https://github.com/sevenview/votd"
+  spec.homepage = "https://github.com/onethreefivechurch/votd"
   spec.license = "MIT"
   spec.required_ruby_version = [">= 3.3", "< 4.1"]
 

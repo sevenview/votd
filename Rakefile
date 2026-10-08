@@ -47,5 +47,5 @@ task :release do
 
   puts
   puts "\e[32mRelease v#{version} created!\e[0m"
-  puts "\e[90mCheck progress: https://github.com/sevenview/votd/actions\e[0m"
+  puts "\e[90mCheck progress: https://github.com/onethreefivechurch/votd/actions\e[0m"
 end
